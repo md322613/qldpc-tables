@@ -1,0 +1,73 @@
+name: verify
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'Comma-separated code names to run (blank = all in codes.json)'
+        required: false
+        default: ''
+      time_limit:
+        description: 'Solver time limit per MILP case, seconds'
+        required: false
+        default: '4800'
+  push:
+    paths: ['codes.json', 'qverify.py', '.github/workflows/verify.yml']
+permissions:
+  contents: write
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      names: ${{ steps.p.outputs.names }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: p
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os
+          only = [s.strip() for s in os.environ.get('ONLY', '').split(',') if s.strip()]
+          names = [e['name'] for e in json.load(open('codes.json'))]
+          if only: names = [n for n in names if n in only]
+          print('names=' + json.dumps(names))
+          PY
+        env:
+          ONLY: ${{ github.event.inputs.only }}
+  certify:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        name: ${{ fromJson(needs.plan.outputs.names) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install numpy galois highspy
+      - run: python qverify.py "${{ matrix.name }}" "${{ github.event.inputs.time_limit || '4800' }}" 4
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: res-${{ strategy.job-index }}
+          path: results/
+          if-no-files-found: ignore
+  collect:
+    needs: certify
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { path: dl, pattern: 'res-*', merge-multiple: true }
+      - run: |
+          mkdir -p results && cp -f dl/*.json results/ 2>/dev/null || true
+          python3 - <<'PY'
+          import json, glob
+          rows = [json.load(open(f)) for f in sorted(glob.glob('results/*.json')) if not f.endswith('index.json')]
+          json.dump(rows, open('results/index.json', 'w'), indent=1)
+          print(len(rows), 'results')
+          PY
+          git config user.name "qverify-bot"; git config user.email "actions@users.noreply.github.com"
+          git add results && git commit -m "results: run ${{ github.run_id }}" && git push || echo "nothing to commit"
