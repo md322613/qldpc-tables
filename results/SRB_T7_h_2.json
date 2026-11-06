@@ -1,0 +1,102 @@
+{
+ "name": "SRB T7 h=2",
+ "kind": "bb",
+ "family": "BB (weight 8, cover)",
+ "l": 12,
+ "m": 6,
+ "A": "x6y4+x5y4+x3+x11y3",
+ "B": "y5+x8y1+x5y5+x9y4",
+ "claim": [
+  144,
+  14,
+  "14"
+ ],
+ "src": "2511.13560",
+ "n": 144,
+ "k": 14,
+ "w": 8,
+ "qdeg": 8,
+ "dX": {
+  "upper": 14,
+  "lower": 14,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   13,
+   23,
+   26,
+   29,
+   36,
+   52,
+   56,
+   87,
+   93,
+   120,
+   129,
+   139,
+   142
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 14,
+    "dual_bound": 14.0,
+    "secs": 399.6
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.1
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 14,
+  "lower": 14,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   8,
+   37,
+   42,
+   70,
+   71,
+   82,
+   85,
+   89,
+   104,
+   105,
+   119,
+   126,
+   128
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 14,
+    "dual_bound": 14.000000000000009,
+    "secs": 639.8
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.2
+   }
+  ]
+ },
+ "d": {
+  "upper": 14,
+  "lower": 14,
+  "exact": true
+ },
+ "wall_secs": 1041.7,
+ "env": {
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002272",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42198448481"
+ }
+}

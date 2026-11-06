@@ -1,0 +1,108 @@
+{
+ "name": "LC [[168,6,16]]",
+ "kind": "tt",
+ "family": "self-dual BB (twisted torus)",
+ "f": "1+x1+y1+x-1y-1",
+ "torus": [
+  42,
+  2,
+  10
+ ],
+ "claim": [
+  168,
+  6,
+  "16"
+ ],
+ "src": "2510.05211",
+ "n": 168,
+ "k": 6,
+ "w": 8,
+ "qdeg": 8,
+ "dX": {
+  "upper": 16,
+  "lower": 16,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   21,
+   29,
+   53,
+   62,
+   63,
+   71,
+   83,
+   94,
+   95,
+   105,
+   113,
+   124,
+   135,
+   157,
+   165
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 16,
+    "dual_bound": 16.0,
+    "secs": 713.6
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.3
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 16,
+  "lower": 16,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   21,
+   29,
+   53,
+   62,
+   63,
+   71,
+   83,
+   94,
+   95,
+   105,
+   113,
+   124,
+   135,
+   157,
+   165
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 16,
+    "dual_bound": 16.0,
+    "secs": 724.4
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.3
+   }
+  ]
+ },
+ "d": {
+  "upper": 16,
+  "lower": 16,
+  "exact": true
+ },
+ "wall_secs": 1439.5,
+ "env": {
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002279",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42198448481"
+ }
+}

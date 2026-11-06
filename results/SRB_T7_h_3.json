@@ -1,0 +1,124 @@
+{
+ "name": "SRB T7 h=3",
+ "kind": "bb",
+ "family": "BB (weight 8, cover)",
+ "l": 18,
+ "m": 6,
+ "A": "y4+x11y4+x3+x11y3",
+ "B": "x6y5+x2y1+x5y5+x15y4",
+ "claim": [
+  216,
+  14,
+  "<=20"
+ ],
+ "src": "2511.13560",
+ "n": 216,
+ "k": 14,
+ "w": 8,
+ "qdeg": 8,
+ "dX": {
+  "upper": 26,
+  "lower": 13,
+  "exact": false,
+  "witness_ok": true,
+  "witness": [
+   0,
+   17,
+   23,
+   28,
+   37,
+   48,
+   49,
+   54,
+   58,
+   63,
+   64,
+   76,
+   92,
+   98,
+   114,
+   128,
+   140,
+   141,
+   143,
+   154,
+   171,
+   189,
+   190,
+   194,
+   202,
+   214
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 26,
+    "dual_bound": 13.0,
+    "secs": 4800.2
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 18.6
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 24,
+  "lower": 13,
+  "exact": false,
+  "witness_ok": true,
+  "witness": [
+   0,
+   7,
+   22,
+   26,
+   30,
+   35,
+   59,
+   72,
+   79,
+   80,
+   87,
+   88,
+   92,
+   107,
+   114,
+   115,
+   142,
+   163,
+   185,
+   190,
+   192,
+   196,
+   205,
+   206
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 24,
+    "dual_bound": 13.0,
+    "secs": 4800.1
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 11.6
+   }
+  ]
+ },
+ "d": {
+  "upper": 24,
+  "lower": 13,
+  "exact": false
+ },
+ "wall_secs": 9632.7,
+ "env": {
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002261",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42198448481"
+ }
+}

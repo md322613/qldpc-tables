@@ -1,0 +1,86 @@
+{
+ "name": "BCGMRY [[72,12,6]]",
+ "kind": "bb",
+ "family": "BB (weight 6)",
+ "l": 6,
+ "m": 6,
+ "A": "x3+y1+y2",
+ "B": "y3+x1+x2",
+ "claim": [
+  72,
+  12,
+  "6"
+ ],
+ "src": "2308.07915",
+ "n": 72,
+ "k": 12,
+ "w": 6,
+ "qdeg": 6,
+ "dX": {
+  "upper": 6,
+  "lower": 6,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   6,
+   12,
+   15,
+   18,
+   27
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 6,
+    "dual_bound": 6.0,
+    "secs": 0.1
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 6,
+  "lower": 6,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   4,
+   18,
+   19,
+   20,
+   23
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 6,
+    "dual_bound": 6.000000000000003,
+    "secs": 0.1
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "d": {
+  "upper": 6,
+  "lower": 6,
+  "exact": true
+ },
+ "wall_secs": 0.4,
+ "env": {
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002283",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42198448481"
+ }
+}

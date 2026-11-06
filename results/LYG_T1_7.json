@@ -1,0 +1,90 @@
+{
+ "name": "LYG T1#7",
+ "kind": "bb",
+ "family": "BB (weight 8)",
+ "l": 12,
+ "m": 6,
+ "A": "x2y3+x8y3+x4y4+x10y5",
+ "B": "1+x1y1+x6y5+x7y5",
+ "claim": [
+  144,
+  18,
+  "8"
+ ],
+ "src": "2609.06572",
+ "n": 144,
+ "k": 18,
+ "w": 8,
+ "qdeg": 8,
+ "dX": {
+  "upper": 8,
+  "lower": 8,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   36,
+   94,
+   95,
+   101,
+   130,
+   131,
+   137
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 8,
+    "dual_bound": 8.0,
+    "secs": 4.6
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 8,
+  "lower": 8,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   6,
+   7,
+   36,
+   42,
+   43,
+   101,
+   137
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 8,
+    "dual_bound": 8.000000000000234,
+    "secs": 1.2
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "d": {
+  "upper": 8,
+  "lower": 8,
+  "exact": true
+ },
+ "wall_secs": 6.6,
+ "env": {
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002259",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42198448481"
+ }
+}

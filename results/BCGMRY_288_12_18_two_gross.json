@@ -1,0 +1,112 @@
+{
+ "name": "BCGMRY [[288,12,18]] two-gross",
+ "kind": "bb",
+ "family": "BB (weight 6)",
+ "l": 12,
+ "m": 12,
+ "A": "x3+y2+y7",
+ "B": "y3+x1+x2",
+ "claim": [
+  288,
+  12,
+  "18"
+ ],
+ "src": "2308.07915",
+ "n": 288,
+ "k": 12,
+ "w": 6,
+ "qdeg": 6,
+ "dX": {
+  "upper": 18,
+  "lower": 18,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   3,
+   15,
+   24,
+   27,
+   33,
+   39,
+   45,
+   48,
+   51,
+   54,
+   63,
+   72,
+   81,
+   93,
+   102,
+   123,
+   135
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 18,
+    "dual_bound": 17.999999999999996,
+    "secs": 3811.5
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 1.0
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 18,
+  "lower": 12,
+  "exact": false,
+  "witness_ok": true,
+  "witness": [
+   144,
+   156,
+   159,
+   165,
+   168,
+   174,
+   180,
+   183,
+   186,
+   192,
+   204,
+   207,
+   216,
+   228,
+   261,
+   270,
+   279,
+   282
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 22,
+    "dual_bound": 12.0,
+    "secs": 4800.1
+   },
+   {
+    "case": 1,
+    "status": "optimal",
+    "incumbent": 18,
+    "dual_bound": 18.0,
+    "secs": 0.7
+   }
+  ]
+ },
+ "d": {
+  "upper": 18,
+  "lower": 12,
+  "exact": false
+ },
+ "wall_secs": 8617.2,
+ "env": {
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002287",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42198448481"
+ }
+}
