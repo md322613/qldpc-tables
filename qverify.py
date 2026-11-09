@@ -1,4 +1,4 @@
-"""Exact minimum-distance certification for abelian two-block (BB-type) CSS codes.
+"""Exact minimum-distance certification for two-block CSS codes: abelian BB-type and coset lifted product (via GAP).
 Usage: python qverify.py <code-name> <time-limit-seconds-per-case> <threads>
 Reads codes.json, writes results/<slug>.json with d, certification status, per-case dual bounds and a witness."""
 import sys, json, re, time, os
@@ -78,7 +78,14 @@ def exact_dist(H, Lc, blocks, tl, threads):
     return best, lo, wit, cases
 
 def run(entry, tl, threads):
-    if entry['kind'] == 'bb':
+    blocks = None
+    if entry['kind'] == 'clp':
+        import clp_ci
+        m, perm, gens = clp_ci.gap_build(entry)
+        Hx, Hz, nb = clp_ci.assemble(entry, m, perm)
+        blocks, ngens = clp_ci.automorphism_orbits(Hx, Hz, m, nb, gens)
+        entry = dict(entry, automorphism_generators=ngens, orbit_sizes=[len(o) for o in blocks])
+    elif entry['kind'] == 'bb':
         Hx, Hz = group_code(entry['m'], entry['l'], 0, parse(entry['A']), parse(entry['B']))
     else:
         al, be, ga = entry['torus']; P = parse(entry['f'])
@@ -86,7 +93,7 @@ def run(entry, tl, threads):
     assert not ((Hx.astype(int) @ Hz.T.astype(int)) % 2).any(), 'checks do not commute'
     n = Hx.shape[1]; k = n - rank2(Hx) - rank2(Hz)
     out = dict(entry, n=n, k=k, w=int(Hx.sum(1).max()), qdeg=int(Hx.sum(0).max() + Hz.sum(0).max()))
-    blocks = [range(0, n // 2), range(n // 2, n)]
+    if blocks is None: blocks = [range(0, n // 2), range(n // 2, n)]
     for typ, H, Lc in (('X', Hz, logicals(Hz, Hx)), ('Z', Hx, logicals(Hx, Hz))):
         d, lo, w, cases = exact_dist(H, Lc, blocks, tl, threads)
         ok = bool(w is not None and not (H @ w % 2).any() and (Lc @ w % 2).any())
@@ -98,7 +105,7 @@ def run(entry, tl, threads):
 
 if __name__ == '__main__':
     name, tl, threads = sys.argv[1], float(sys.argv[2]), int(sys.argv[3])
-    entry = next(e for e in json.load(open('codes.json')) if e['name'] == name)
+    entry = next(e for f in ('codes.json', 'codes_clp.json') if os.path.exists(f) for e in json.load(open(f)) if e['name'] == name)
     os.makedirs('results', exist_ok=True)
     t = time.time(); res = run(entry, tl, threads); res['wall_secs'] = round(time.time() - t, 1)
     res['env'] = dict(highspy=highspy.__version__ if hasattr(highspy, '__version__') else 'n/a', runner=os.environ.get('RUNNER_NAME', 'local'),
