@@ -11,7 +11,7 @@ on:
         required: false
         default: '4800'
   push:
-    paths: ['codes.json', 'qverify.py', '.github/workflows/verify.yml']
+    paths: ['codes.json', 'codes_clp.json', 'qverify.py', 'clp_ci.py', '.github/workflows/verify.yml']
 permissions:
   contents: write
 jobs:
@@ -26,7 +26,12 @@ jobs:
           python3 - <<'PY' >> "$GITHUB_OUTPUT"
           import json, os
           only = [s.strip() for s in os.environ.get('ONLY', '').split(',') if s.strip()]
-          names = [e['name'] for e in json.load(open('codes.json'))]
+          names = [e['name'] for f in ('codes.json', 'codes_clp.json') if os.path.exists(f) for e in json.load(open(f))]
+          if not only and os.environ.get('GITHUB_EVENT_NAME') == 'push':
+              done = set()
+              if os.path.exists('results/index.json'):
+                  done = {r['name'] for r in json.load(open('results/index.json')) if r['d']['exact']}
+              names = [x for x in names if x not in done]
           if only: names = [n for n in names if n in only]
           print('names=' + json.dumps(names))
           PY
@@ -46,6 +51,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
       - run: pip install numpy galois highspy
+      - run: sudo apt-get update -q && sudo apt-get install -y -q gap
       - run: python qverify.py "${{ matrix.name }}" "${{ github.event.inputs.time_limit || '4800' }}" 4
       - uses: actions/upload-artifact@v4
         if: always()
@@ -66,6 +72,13 @@ jobs:
           python3 - <<'PY'
           import json, glob
           rows = [json.load(open(f)) for f in sorted(glob.glob('results/*.json')) if not f.endswith('index.json')]
+          # keep the best certificate per code across runs: exact beats interval, then tighter interval
+          best = {}
+          for r in rows:
+              b = best.get(r['name'])
+              key = (r['d']['exact'], -(r['d']['upper'] - r['d']['lower']))
+              if b is None or key > (b['d']['exact'], -(b['d']['upper'] - b['d']['lower'])): best[r['name']] = r
+          rows = list(best.values())
           json.dump(rows, open('results/index.json', 'w'), indent=1)
           print(len(rows), 'results')
           PY
