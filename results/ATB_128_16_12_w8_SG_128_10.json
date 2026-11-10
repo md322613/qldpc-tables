@@ -1,0 +1,138 @@
+{
+ "name": "ATB [[128,16,12]] w8 SG(128,10)",
+ "kind": "atb",
+ "family": "coset two-block (w=8)",
+ "G": [
+  128,
+  10
+ ],
+ "s": 1,
+ "a": [
+  1,
+  47,
+  75,
+  88
+ ],
+ "b": [
+  1,
+  8,
+  12,
+  19
+ ],
+ "claim": [
+  128,
+  16,
+  "12"
+ ],
+ "src": "2606.17268",
+ "automorphism_generators": 26,
+ "orbit_sizes": [
+  32,
+  32,
+  32,
+  32
+ ],
+ "n": 128,
+ "k": 16,
+ "w": 8,
+ "qdeg": 8,
+ "dX": {
+  "upper": 12,
+  "lower": 12,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   2,
+   3,
+   5,
+   6,
+   13,
+   15,
+   18,
+   21,
+   36,
+   38,
+   56
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 12,
+    "dual_bound": 12.0,
+    "secs": 46.4
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 11.9
+   },
+   {
+    "case": 2,
+    "status": "infeasible",
+    "secs": 0.1
+   },
+   {
+    "case": 3,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 12,
+  "lower": 12,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   2,
+   12,
+   17,
+   49,
+   61,
+   64,
+   76,
+   78,
+   80,
+   85,
+   120
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 12,
+    "dual_bound": 12.0,
+    "secs": 40.7
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 8.1
+   },
+   {
+    "case": 2,
+    "status": "infeasible",
+    "secs": 0.7
+   },
+   {
+    "case": 3,
+    "status": "infeasible",
+    "secs": 0.5
+   }
+  ]
+ },
+ "d": {
+  "upper": 12,
+  "lower": 12,
+  "exact": true
+ },
+ "wall_secs": 112.3,
+ "env": {
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002353",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42874483432"
+ }
+}
