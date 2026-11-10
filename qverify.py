@@ -82,7 +82,12 @@ def exact_dist(H, Lc, blocks, tl, threads, deadline=None):
 
 def run(entry, tl, threads):
     blocks = None
-    if entry['kind'] == 'clp':
+    if entry['kind'] == 'atb':
+        import atb_ci, clp_ci
+        D = atb_ci.gap_build(entry); Hx, Hz, nb = atb_ci.assemble(D)
+        blocks, ngens = clp_ci.automorphism_orbits(Hx, Hz, D['m'], nb, D['gens'])
+        entry = dict(entry, automorphism_generators=ngens, orbit_sizes=[len(o) for o in blocks])
+    elif entry['kind'] == 'clp':
         import clp_ci
         m, perm, gens = clp_ci.gap_build(entry)
         Hx, Hz, nb = clp_ci.assemble(entry, m, perm)
@@ -111,7 +116,8 @@ def run(entry, tl, threads):
 
 if __name__ == '__main__':
     name, tl, threads = sys.argv[1], float(sys.argv[2]), int(sys.argv[3])
-    entry = next(e for f in ('codes.json', 'codes_clp.json') if os.path.exists(f) for e in json.load(open(f)) if e['name'] == name)
+    import glob
+    entry = next(e for f in sorted(glob.glob('codes*.json')) for e in json.load(open(f)) if e['name'] == name)
     os.makedirs('results', exist_ok=True)
     t = time.time(); res = run(entry, tl, threads); res['wall_secs'] = round(time.time() - t, 1)
     res['env'] = dict(highspy=highspy.__version__ if hasattr(highspy, '__version__') else 'n/a', runner=os.environ.get('RUNNER_NAME', 'local'),
