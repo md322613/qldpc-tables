@@ -37,12 +37,15 @@ def logicals(H1, H2):
         if np.linalg.matrix_rank(t) > cur.shape[0]: cur = t; L.append(np.array(v, dtype=np.uint8))
     return np.array(L, dtype=np.uint8)
 
-def exact_dist(H, Lc, blocks, tl, threads):
+def exact_dist(H, Lc, blocks, tl, threads, deadline=None):
     H = np.asarray(H) % 2; L = np.asarray(Lc) % 2; n = H.shape[1]
     best = None; wit = None; cases = []
     for ci, blk in enumerate(blocks):
         h = highspy.Highs(); h.setOptionValue('output_flag', False)
-        h.setOptionValue('time_limit', float(tl)); h.setOptionValue('threads', threads)
+        lim = float(tl)
+        if deadline is not None:
+            lim = max(60.0, min(lim, (deadline - time.time()) / (len(blocks) - ci)))
+        h.setOptionValue('time_limit', lim); h.setOptionValue('threads', threads)
         for j in range(n): h.addVar(0, 1)
         nv = [n]; integ = list(range(n))
         def addint(u):
@@ -94,8 +97,11 @@ def run(entry, tl, threads):
     n = Hx.shape[1]; k = n - rank2(Hx) - rank2(Hz)
     out = dict(entry, n=n, k=k, w=int(Hx.sum(1).max()), qdeg=int(Hx.sum(0).max() + Hz.sum(0).max()))
     if blocks is None: blocks = [range(0, n // 2), range(n // 2, n)]
-    for typ, H, Lc in (('X', Hz, logicals(Hz, Hx)), ('Z', Hx, logicals(Hx, Hz))):
-        d, lo, w, cases = exact_dist(H, Lc, blocks, tl, threads)
+    budget = float(os.environ.get('QV_BUDGET', '17400'))   # total seconds for this code (job limit is 350 min)
+    t_start = time.time()
+    for ti, (typ, H, Lc) in enumerate((('X', Hz, logicals(Hz, Hx)), ('Z', Hx, logicals(Hx, Hz)))):
+        deadline = t_start + budget * (ti + 1) / 2
+        d, lo, w, cases = exact_dist(H, Lc, blocks, tl, threads, deadline)
         ok = bool(w is not None and not (H @ w % 2).any() and (Lc @ w % 2).any())
         out['d' + typ] = dict(upper=d, lower=lo, exact=(d is not None and lo == d), witness_ok=ok,
                               witness=np.nonzero(w)[0].tolist() if w is not None else None, cases=cases)
