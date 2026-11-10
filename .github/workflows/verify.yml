@@ -11,7 +11,7 @@ on:
         required: false
         default: '4800'
   push:
-    paths: ['codes.json', 'codes_clp.json', 'qverify.py', 'clp_ci.py', '.github/workflows/verify.yml']
+    paths: ['codes*.json', 'qverify.py', '*_ci.py', '.github/workflows/verify.yml']
 permissions:
   contents: write
 jobs:
@@ -26,11 +26,12 @@ jobs:
           python3 - <<'PY' >> "$GITHUB_OUTPUT"
           import json, os
           only = [s.strip() for s in os.environ.get('ONLY', '').split(',') if s.strip()]
-          names = [e['name'] for f in ('codes.json', 'codes_clp.json') if os.path.exists(f) for e in json.load(open(f))]
+          import glob
+          names = [e['name'] for f in sorted(glob.glob('codes*.json')) for e in json.load(open(f))]
           if not only and os.environ.get('GITHUB_EVENT_NAME') == 'push':
               done = set()
               if os.path.exists('results/index.json'):
-                  done = {r['name'] for r in json.load(open('results/index.json')) if r['d']['exact']}
+                  done = {r['name'] for r in json.load(open('results/index.json'))}   # push runs only codes without any result yet
               names = [x for x in names if x not in done]
           if only: names = [n for n in names if n in only]
           print('names=' + json.dumps(names))
