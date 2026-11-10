@@ -1,0 +1,396 @@
+{
+ "name": "RLG [[336,18,<=20]] w9 SG(168,52)",
+ "kind": "clp",
+ "family": "coset lifted product (w=9)",
+ "G": [
+  168,
+  52
+ ],
+ "H": [
+  [
+   [
+    1,
+    1
+   ],
+   [
+    5,
+    1
+   ]
+  ]
+ ],
+ "A": [
+  [
+   [
+    [],
+    [
+     [
+      3,
+      1
+     ],
+     [
+      5,
+      1
+     ]
+    ],
+    [
+     [
+      2,
+      2
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      5,
+      1
+     ]
+    ],
+    [
+     [
+      1,
+      1
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      1
+     ]
+    ],
+    [
+     [
+      1,
+      1
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      4,
+      1
+     ]
+    ]
+   ]
+  ]
+ ],
+ "B": [
+  [
+   [
+    []
+   ],
+   [
+    [],
+    [
+     [
+      3,
+      3
+     ]
+    ],
+    [
+     [
+      3,
+      3
+     ],
+     [
+      4,
+      1
+     ],
+     [
+      5,
+      1
+     ]
+    ]
+   ]
+  ],
+  [
+   [
+    [],
+    [
+     [
+      3,
+      6
+     ],
+     [
+      4,
+      1
+     ]
+    ],
+    [
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      1
+     ],
+     [
+      5,
+      1
+     ]
+    ]
+   ],
+   [
+    [
+     [
+      3,
+      2
+     ],
+     [
+      5,
+      1
+     ]
+    ]
+   ]
+  ]
+ ],
+ "layout": "1x1/2x2",
+ "claim": [
+  336,
+  18,
+  "<=20"
+ ],
+ "src": "2610.12782",
+ "automorphism_generators": 16,
+ "orbit_sizes": [
+  28,
+  28,
+  28,
+  28,
+  28,
+  28,
+  28,
+  28,
+  28,
+  28,
+  28,
+  28
+ ],
+ "n": 336,
+ "k": 18,
+ "w": 9,
+ "qdeg": 10,
+ "dX": {
+  "upper": 24,
+  "lower": 9,
+  "exact": false,
+  "witness_ok": true,
+  "witness": [
+   1,
+   16,
+   19,
+   41,
+   43,
+   53,
+   55,
+   64,
+   67,
+   75,
+   85,
+   100,
+   101,
+   103,
+   112,
+   114,
+   115,
+   124,
+   125,
+   126,
+   137,
+   139,
+   149,
+   150
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 29,
+    "dual_bound": 10.0,
+    "secs": 724.5
+   },
+   {
+    "case": 1,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 24,
+    "dual_bound": 11.0,
+    "secs": 724.5
+   },
+   {
+    "case": 2,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 0,
+    "dual_bound": 11.000000000000005,
+    "secs": 724.5
+   },
+   {
+    "case": 3,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 0,
+    "dual_bound": 9.000000000001597,
+    "secs": 724.4
+   },
+   {
+    "case": 4,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 0,
+    "dual_bound": 19.0,
+    "secs": 724.5
+   },
+   {
+    "case": 5,
+    "status": "infeasible",
+    "secs": 347.6
+   },
+   {
+    "case": 6,
+    "status": "infeasible",
+    "secs": 372.6
+   },
+   {
+    "case": 7,
+    "status": "infeasible",
+    "secs": 2.5
+   },
+   {
+    "case": 8,
+    "status": "infeasible",
+    "secs": 0.0
+   },
+   {
+    "case": 9,
+    "status": "infeasible",
+    "secs": 402.3
+   },
+   {
+    "case": 10,
+    "status": "infeasible",
+    "secs": 0.4
+   },
+   {
+    "case": 11,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 20,
+  "lower": 10,
+  "exact": false,
+  "witness_ok": true,
+  "witness": [
+   85,
+   90,
+   98,
+   100,
+   121,
+   123,
+   124,
+   133,
+   147,
+   158,
+   176,
+   186,
+   199,
+   210,
+   223,
+   235,
+   244,
+   260,
+   306,
+   328
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 0,
+    "dual_bound": 10.0,
+    "secs": 1053.8
+   },
+   {
+    "case": 1,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 0,
+    "dual_bound": 10.0,
+    "secs": 1053.9
+   },
+   {
+    "case": 2,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 0,
+    "dual_bound": 11.0,
+    "secs": 1053.8
+   },
+   {
+    "case": 3,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 68,
+    "dual_bound": 13.0,
+    "secs": 1053.8
+   },
+   {
+    "case": 4,
+    "status": "optimal",
+    "incumbent": 20,
+    "dual_bound": 20.000000000000036,
+    "secs": 535.1
+   },
+   {
+    "case": 5,
+    "status": "infeasible",
+    "secs": 24.5
+   },
+   {
+    "case": 6,
+    "status": "infeasible",
+    "secs": 8.8
+   },
+   {
+    "case": 7,
+    "status": "infeasible",
+    "secs": 6.7
+   },
+   {
+    "case": 8,
+    "status": "infeasible",
+    "secs": 5.3
+   },
+   {
+    "case": 9,
+    "status": "infeasible",
+    "secs": 0.0
+   },
+   {
+    "case": 10,
+    "status": "infeasible",
+    "secs": 0.0
+   },
+   {
+    "case": 11,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "d": {
+  "upper": 20,
+  "lower": 9,
+  "exact": false
+ },
+ "wall_secs": 9552.7,
+ "env": {
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002335",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42788118135"
+ }
+}

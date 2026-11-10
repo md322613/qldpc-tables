@@ -1,0 +1,354 @@
+{
+ "name": "RLG [[224,12,<=21]] w9 SG(224,169)",
+ "kind": "clp",
+ "family": "coset lifted product (w=9)",
+ "G": [
+  224,
+  169
+ ],
+ "H": [
+  [
+   [
+    2,
+    1
+   ]
+  ],
+  [
+   [
+    6,
+    1
+   ]
+  ]
+ ],
+ "A": [
+  [
+   [
+    [],
+    [
+     [
+      1,
+      1
+     ],
+     [
+      4,
+      1
+     ]
+    ],
+    [
+     [
+      1,
+      1
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      4,
+      2
+     ]
+    ],
+    [
+     [
+      2,
+      1
+     ],
+     [
+      4,
+      2
+     ],
+     [
+      5,
+      1
+     ],
+     [
+      6,
+      1
+     ]
+    ],
+    [
+     [
+      1,
+      1
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      1
+     ],
+     [
+      6,
+      1
+     ]
+    ]
+   ]
+  ]
+ ],
+ "B": [
+  [
+   [
+    []
+   ],
+   [
+    [],
+    [
+     [
+      3,
+      1
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      5,
+      1
+     ]
+    ],
+    [
+     [
+      3,
+      1
+     ],
+     [
+      4,
+      5
+     ]
+    ]
+   ]
+  ],
+  [
+   [
+    [],
+    [
+     [
+      4,
+      4
+     ],
+     [
+      5,
+      1
+     ]
+    ],
+    [
+     [
+      3,
+      1
+     ],
+     [
+      4,
+      5
+     ]
+    ]
+   ],
+   [
+    [
+     [
+      5,
+      1
+     ]
+    ]
+   ]
+  ]
+ ],
+ "layout": "1x1/2x2",
+ "claim": [
+  224,
+  12,
+  "<=21"
+ ],
+ "src": "2610.12782",
+ "automorphism_generators": 24,
+ "orbit_sizes": [
+  28,
+  28,
+  28,
+  28,
+  28,
+  28,
+  28,
+  28
+ ],
+ "n": 224,
+ "k": 12,
+ "w": 9,
+ "qdeg": 10,
+ "dX": {
+  "upper": 24,
+  "lower": 10,
+  "exact": false,
+  "witness_ok": true,
+  "witness": [
+   0,
+   2,
+   4,
+   7,
+   8,
+   15,
+   16,
+   25,
+   30,
+   32,
+   39,
+   40,
+   41,
+   46,
+   48,
+   52,
+   58,
+   63,
+   64,
+   70,
+   71,
+   79,
+   94,
+   103
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 24,
+    "dual_bound": 10.0,
+    "secs": 1087.0
+   },
+   {
+    "case": 1,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 0,
+    "dual_bound": 13.0,
+    "secs": 1087.0
+   },
+   {
+    "case": 2,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 0,
+    "dual_bound": 14.0,
+    "secs": 1087.0
+   },
+   {
+    "case": 3,
+    "status": "infeasible",
+    "secs": 922.3
+   },
+   {
+    "case": 4,
+    "status": "infeasible",
+    "secs": 28.2
+   },
+   {
+    "case": 5,
+    "status": "infeasible",
+    "secs": 0.0
+   },
+   {
+    "case": 6,
+    "status": "infeasible",
+    "secs": 20.0
+   },
+   {
+    "case": 7,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 24,
+  "lower": 11,
+  "exact": false,
+  "witness_ok": true,
+  "witness": [
+   56,
+   59,
+   60,
+   61,
+   66,
+   67,
+   70,
+   72,
+   74,
+   75,
+   78,
+   79,
+   81,
+   83,
+   86,
+   87,
+   90,
+   91,
+   95,
+   96,
+   102,
+   104,
+   106,
+   108
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 33,
+    "dual_bound": 11.0,
+    "secs": 1645.6
+   },
+   {
+    "case": 1,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 27,
+    "dual_bound": 13.0,
+    "secs": 1645.6
+   },
+   {
+    "case": 2,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 24,
+    "dual_bound": 14.0,
+    "secs": 1645.5
+   },
+   {
+    "case": 3,
+    "status": "infeasible",
+    "secs": 665.1
+   },
+   {
+    "case": 4,
+    "status": "infeasible",
+    "secs": 15.3
+   },
+   {
+    "case": 5,
+    "status": "infeasible",
+    "secs": 19.0
+   },
+   {
+    "case": 6,
+    "status": "infeasible",
+    "secs": 0.0
+   },
+   {
+    "case": 7,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "d": {
+  "upper": 24,
+  "lower": 10,
+  "exact": false
+ },
+ "wall_secs": 9874.3,
+ "env": {
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002327",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42788118135"
+ }
+}
