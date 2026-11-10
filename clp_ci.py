@@ -1,4 +1,5 @@
-"""Coset lifted product codes (Rajpurohit-Lalitha-Garani, arXiv:2610.12782, Def. III.1): GAP construction + code automorphisms."""
+"""Coset lifted product codes (Rajpurohit-Lalitha-Garani, arXiv:2610.12782, Def. III.1): GAP construction + code automorphisms.
+Automorphisms are blockwise left/right coset actions that preserve both row spaces; orbits give exact case splits."""
 import json, subprocess, numpy as np, galois
 GF2=galois.GF(2)
 def gw(word): return '*'.join([f'pc[{g}]^{e}' for g,e in word]) or 'One(G)'
