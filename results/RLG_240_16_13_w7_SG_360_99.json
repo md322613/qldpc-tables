@@ -1,0 +1,302 @@
+{
+ "name": "RLG [[240,16,13]] w7 SG(360,99)",
+ "kind": "clp",
+ "family": "coset lifted product (w=7)",
+ "G": [
+  360,
+  99
+ ],
+ "H": [
+  [
+   [
+    3,
+    1
+   ],
+   [
+    6,
+    1
+   ]
+  ],
+  [
+   [
+    5,
+    1
+   ]
+  ]
+ ],
+ "A": [
+  [
+   [
+    [],
+    [
+     [
+      1,
+      1
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      6,
+      2
+     ]
+    ],
+    [
+     [
+      1,
+      1
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      4,
+      4
+     ],
+     [
+      5,
+      1
+     ],
+     [
+      6,
+      2
+     ]
+    ]
+   ]
+  ]
+ ],
+ "B": [
+  [
+   [
+    []
+   ],
+   [
+    [],
+    [
+     [
+      2,
+      1
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      6,
+      2
+     ]
+    ]
+   ]
+  ],
+  [
+   [
+    [],
+    [
+     [
+      2,
+      1
+     ],
+     [
+      6,
+      1
+     ]
+    ]
+   ],
+   [
+    [
+     [
+      2,
+      1
+     ],
+     [
+      4,
+      2
+     ],
+     [
+      6,
+      2
+     ]
+    ],
+    [
+     [
+      4,
+      4
+     ],
+     [
+      6,
+      1
+     ]
+    ]
+   ]
+  ]
+ ],
+ "layout": "1x1/2x2",
+ "claim": [
+  240,
+  16,
+  "13"
+ ],
+ "src": "2610.12782",
+ "automorphism_generators": 24,
+ "orbit_sizes": [
+  30,
+  30,
+  30,
+  30,
+  30,
+  30,
+  30,
+  30
+ ],
+ "n": 240,
+ "k": 16,
+ "w": 7,
+ "qdeg": 8,
+ "dX": {
+  "upper": 13,
+  "lower": 13,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   22,
+   58,
+   76,
+   126,
+   127,
+   142,
+   178,
+   179,
+   182,
+   185,
+   218,
+   230
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 13,
+    "dual_bound": 13.000000000000004,
+    "secs": 86.2
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 22.1
+   },
+   {
+    "case": 2,
+    "status": "infeasible",
+    "secs": 35.4
+   },
+   {
+    "case": 3,
+    "status": "infeasible",
+    "secs": 0.2
+   },
+   {
+    "case": 4,
+    "status": "infeasible",
+    "secs": 0.1
+   },
+   {
+    "case": 5,
+    "status": "infeasible",
+    "secs": 0.0
+   },
+   {
+    "case": 6,
+    "status": "infeasible",
+    "secs": 0.0
+   },
+   {
+    "case": 7,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 13,
+  "lower": 13,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   74,
+   76,
+   83,
+   88,
+   91,
+   108,
+   115,
+   116,
+   120,
+   142,
+   177,
+   218
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 13,
+    "dual_bound": 12.99999999999999,
+    "secs": 94.5
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 44.4
+   },
+   {
+    "case": 2,
+    "status": "infeasible",
+    "secs": 15.9
+   },
+   {
+    "case": 3,
+    "status": "infeasible",
+    "secs": 3.1
+   },
+   {
+    "case": 4,
+    "status": "infeasible",
+    "secs": 0.2
+   },
+   {
+    "case": 5,
+    "status": "infeasible",
+    "secs": 0.8
+   },
+   {
+    "case": 6,
+    "status": "infeasible",
+    "secs": 0.0
+   },
+   {
+    "case": 7,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "d": {
+  "upper": 13,
+  "lower": 13,
+  "exact": true
+ },
+ "wall_secs": 310.6,
+ "env": {
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002297",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42701935765"
+ }
+}

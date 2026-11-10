@@ -1,0 +1,344 @@
+{
+ "name": "RLG [[252,16,18]] w9 SG(189,8)",
+ "kind": "clp",
+ "family": "coset lifted product (w=9)",
+ "G": [
+  189,
+  8
+ ],
+ "H": [
+  [
+   [
+    2,
+    1
+   ]
+  ]
+ ],
+ "A": [
+  [
+   [
+    [],
+    [
+     [
+      3,
+      1
+     ],
+     [
+      4,
+      4
+     ]
+    ],
+    [
+     [
+      2,
+      2
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      4,
+      2
+     ]
+    ],
+    [
+     [
+      1,
+      1
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      4,
+      1
+     ]
+    ],
+    [
+     [
+      1,
+      2
+     ],
+     [
+      4,
+      1
+     ]
+    ]
+   ]
+  ]
+ ],
+ "B": [
+  [
+   [
+    []
+   ],
+   [
+    [],
+    [
+     [
+      4,
+      1
+     ]
+    ],
+    [
+     [
+      3,
+      2
+     ],
+     [
+      4,
+      4
+     ]
+    ]
+   ]
+  ],
+  [
+   [
+    [],
+    [
+     [
+      3,
+      2
+     ]
+    ],
+    [
+     [
+      3,
+      1
+     ],
+     [
+      4,
+      1
+     ]
+    ]
+   ],
+   [
+    [
+     [
+      4,
+      3
+     ]
+    ]
+   ]
+  ]
+ ],
+ "layout": "1x1/2x2",
+ "claim": [
+  252,
+  16,
+  "18"
+ ],
+ "src": "2610.12782",
+ "automorphism_generators": 10,
+ "orbit_sizes": [
+  21,
+  21,
+  21,
+  21,
+  21,
+  21,
+  21,
+  21,
+  21,
+  21,
+  21,
+  21
+ ],
+ "n": 252,
+ "k": 16,
+ "w": 9,
+ "qdeg": 10,
+ "dX": {
+  "upper": 18,
+  "lower": 13,
+  "exact": false,
+  "witness_ok": true,
+  "witness": [
+   0,
+   2,
+   7,
+   26,
+   34,
+   35,
+   42,
+   43,
+   51,
+   80,
+   88,
+   89,
+   96,
+   97,
+   105,
+   107,
+   115,
+   121
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 18,
+    "dual_bound": 13.0,
+    "secs": 4800.1
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 2561.7
+   },
+   {
+    "case": 2,
+    "status": "infeasible",
+    "secs": 1898.0
+   },
+   {
+    "case": 3,
+    "status": "infeasible",
+    "secs": 435.0
+   },
+   {
+    "case": 4,
+    "status": "infeasible",
+    "secs": 43.5
+   },
+   {
+    "case": 5,
+    "status": "infeasible",
+    "secs": 14.6
+   },
+   {
+    "case": 6,
+    "status": "infeasible",
+    "secs": 11.7
+   },
+   {
+    "case": 7,
+    "status": "infeasible",
+    "secs": 0.0
+   },
+   {
+    "case": 8,
+    "status": "infeasible",
+    "secs": 0.0
+   },
+   {
+    "case": 9,
+    "status": "infeasible",
+    "secs": 6.8
+   },
+   {
+    "case": 10,
+    "status": "infeasible",
+    "secs": 0.0
+   },
+   {
+    "case": 11,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 18,
+  "lower": 13,
+  "exact": false,
+  "witness_ok": true,
+  "witness": [
+   0,
+   2,
+   3,
+   7,
+   8,
+   11,
+   15,
+   19,
+   27,
+   29,
+   35,
+   37,
+   38,
+   43,
+   45,
+   46,
+   51,
+   53
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "HighsModelStatus.kTimeLimit",
+    "incumbent": 18,
+    "dual_bound": 13.0,
+    "secs": 4800.1
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 1620.3
+   },
+   {
+    "case": 2,
+    "status": "infeasible",
+    "secs": 808.2
+   },
+   {
+    "case": 3,
+    "status": "infeasible",
+    "secs": 971.2
+   },
+   {
+    "case": 4,
+    "status": "infeasible",
+    "secs": 72.7
+   },
+   {
+    "case": 5,
+    "status": "infeasible",
+    "secs": 4.1
+   },
+   {
+    "case": 6,
+    "status": "infeasible",
+    "secs": 4.3
+   },
+   {
+    "case": 7,
+    "status": "infeasible",
+    "secs": 3.1
+   },
+   {
+    "case": 8,
+    "status": "infeasible",
+    "secs": 2.5
+   },
+   {
+    "case": 9,
+    "status": "infeasible",
+    "secs": 0.0
+   },
+   {
+    "case": 10,
+    "status": "infeasible",
+    "secs": 0.0
+   },
+   {
+    "case": 11,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "d": {
+  "upper": 18,
+  "lower": 13,
+  "exact": false
+ },
+ "wall_secs": 18062.5,
+ "env": {
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002298",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42701935765"
+ }
+}
