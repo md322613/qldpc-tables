@@ -82,7 +82,13 @@ def exact_dist(H, Lc, blocks, tl, threads, deadline=None):
 
 def run(entry, tl, threads):
     blocks = None
-    if entry['kind'] == 'atb':
+    if entry['kind'] == 'lp':
+        import lp_ci, clp_ci
+        D = lp_ci.gap_build(entry); Hx, Hz, nb = lp_ci.assemble(D)
+        assert D['id'] == entry['id'], ('group id mismatch', D['id'], entry['id'])
+        blocks, ngens = clp_ci.automorphism_orbits(Hx, Hz, D['m'], nb, D['gens'])
+        entry = dict(entry, automorphism_generators=ngens, orbit_sizes=[len(o) for o in blocks])
+    elif entry['kind'] == 'atb':
         import atb_ci, clp_ci
         D = atb_ci.gap_build(entry); Hx, Hz, nb = atb_ci.assemble(D)
         blocks, ngens = clp_ci.automorphism_orbits(Hx, Hz, D['m'], nb, D['gens'])
