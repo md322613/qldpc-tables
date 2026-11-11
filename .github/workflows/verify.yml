@@ -82,11 +82,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
-        with: { path: dl, pattern: 'res-*', merge-multiple: true }
+        with: { path: dl, pattern: 'res-*' }
       - run: |
-          mkdir -p results && cp -f dl/*.json results/ 2>/dev/null || true
+          mkdir -p results
           python3 - <<'PY'
-          import json, glob
+          import json, glob, os, shutil
+          rid = os.environ['GITHUB_RUN_ID']   # artifacts also carry the checked-out results/; copy only this run's files
+          for f in glob.glob('dl/*/*.json'):
+              if f.endswith('index.json'): continue
+              try: r = json.load(open(f))
+              except Exception: continue
+              if rid in r.get('env', {}).get('run_url', ''): shutil.copy(f, 'results/')
           rows = [json.load(open(f)) for f in sorted(glob.glob('results/*.json')) if not f.endswith('index.json')]
           # keep the best certificate per code across runs: exact beats interval, then tighter interval
           best = {}
