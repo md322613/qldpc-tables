@@ -112,6 +112,18 @@ def solve(H, L, U, sc, secs, threads):
         rec['witness'] = np.nonzero(sol)[0].tolist(); rec['weight'] = int(sol.sum())
     return rec
 
+def resolve(i, D, blocks):
+    """Subcase id 'c.t.b' or 'c.t.b@k:bits' (fix the next k free coordinates of orbit c to the bits; exhaustive 2^k split)."""
+    base, _, cube = i.partition('@')
+    sc = dict(D[base]); sc['fix1'] = list(sc['fix1']); sc['fix0'] = list(sc['fix0'])
+    if cube:
+        k, bits = map(int, cube.split(':'))
+        orb = blocks[int(base.split('.')[0])]
+        fixed = set(map(int, sc['fix1'])) | set(map(int, sc['fix0']))
+        for r, j in enumerate([j for j in orb if j not in fixed][:k]):
+            (sc['fix1'] if (bits >> r) & 1 else sc['fix0']).append(j)
+    return sc
+
 def setup(name, sector):
     entry = next(e for f in sorted(glob.glob('codes*.json')) for e in json.load(open(f)) if e['name'] == name)
     Hx, Hz, blocks, entry = qverify.build(entry)
@@ -151,13 +163,24 @@ if __name__ == '__main__':
     if what == 'list':
         print(json.dumps(dict(n=H.shape[1], group=len(G), orbits=[len(b) for b in blocks], subcases=[i for i, _ in SC]))); sys.exit()
     secs, threads = float(sys.argv[5]), int(sys.argv[6])
+    engine = os.environ.get('QS_ENGINE', 'highs')
     ids = [i for i, _ in SC] if what == 'all' else what.split(',')
     D = dict(SC); out = []
     for i in ids:
-        rec = dict(id=i, **solve(H, L, U, D[i], secs, threads)); out.append(rec); print(json.dumps(rec), flush=True)
+        sc = resolve(i, D, blocks)
+        if engine == 'gurobi':
+            import grb
+            r = grb.solve(H, L, U - 1, secs, threads, sc['fix1'], sc['fix0'], sc['pairs'])
+            rec = dict(id=i, secs=r['secs'], dual_bound=r['dual_bound'],
+                       status='UNSAT' if r['status'] == 'infeasible' else ('SAT' if r['witness'] is not None else 'UNKNOWN'))
+            if r['witness'] is not None: rec['witness'] = np.nonzero(r['witness'])[0].tolist(); rec['weight'] = int(r['witness'].sum())
+        else:
+            r = solve(H, L, U, sc, secs, threads)
+            rec = dict(id=i, **r); rec['status'] = 'UNSAT' if r['status'] == 'infeasible' else ('SAT' if 'witness' in r else 'UNKNOWN')
+        rec['engine'] = engine; out.append(rec); print(json.dumps(rec), flush=True)
     slug = re.sub(r'[^A-Za-z0-9]+', '_', name).strip('_')
-    os.makedirs('results/split', exist_ok=True)
+    os.makedirs('results/sat', exist_ok=True)
     tag = 'all' if what == 'all' else re.sub(r'[^0-9a-z.]+', '_', what)[:60]
-    json.dump(dict(name=name, sector=sector, U=U, group=len(G), n_subcases=len(SC), results=out,
+    json.dump(dict(name=name, sector=sector, U=U, engine=engine, group=len(G), n_subcases=len(SC), subcase_ids=[i for i, _ in SC], results=out,
                    run_url=f"{os.environ.get('GITHUB_SERVER_URL','')}/{os.environ.get('GITHUB_REPOSITORY','')}/actions/runs/{os.environ.get('GITHUB_RUN_ID','')}"),
-              open(f'results/split/{slug}__{sector}_U{U}_{tag}.json', 'w'), indent=1)
+              open(f'results/sat/{slug}__{sector}_U{U}_{engine}_{tag}.json', 'w'), indent=1)
