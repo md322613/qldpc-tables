@@ -3,13 +3,17 @@ on:
   workflow_dispatch:
     inputs:
       only:
-        description: 'Comma-separated code names to run (blank = all in codes.json)'
+        description: "'|'-separated code names, 'open' = all codes without an exact certificate, blank = all"
         required: false
         default: ''
       time_limit:
         description: 'Solver time limit per MILP case, seconds'
         required: false
         default: '4800'
+      engine:
+        description: 'highs | gurobi (needs GRB_* repository secrets)'
+        required: false
+        default: 'highs'
   push:
     paths: ['codes*.json', 'qverify.py', '*_ci.py', '.github/workflows/verify.yml']
 permissions:
@@ -25,7 +29,8 @@ jobs:
         run: |
           python3 - <<'PY' >> "$GITHUB_OUTPUT"
           import json, os
-          only = [s.strip() for s in os.environ.get('ONLY', '').split(',') if s.strip()]
+          raw = os.environ.get('ONLY', '').strip()
+          only = [s.strip() for s in raw.split('|') if s.strip()] if raw not in ('open',) else []
           import glob
           names = [e['name'] for f in sorted(glob.glob('codes*.json')) for e in json.load(open(f))]
           if not only and os.environ.get('GITHUB_EVENT_NAME') == 'push':
@@ -33,6 +38,11 @@ jobs:
               if os.path.exists('results/index.json'):
                   done = {r['name'] for r in json.load(open('results/index.json'))}   # push runs only codes without any result yet
               names = [x for x in names if x not in done]
+          if raw == 'open':   # every code without an exact certificate (incl. never run)
+              ex = set()
+              if os.path.exists('results/index.json'):
+                  ex = {r['name'] for r in json.load(open('results/index.json')) if r['d']['exact']}
+              names = [x for x in names if x not in ex]
           if only: names = [n for n in names if n in only]
           print('names=' + json.dumps(names))
           PY
@@ -51,9 +61,14 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
-      - run: pip install numpy galois highspy
+      - run: pip install numpy galois highspy gurobipy
       - run: sudo apt-get update -q && sudo apt-get install -y -q gap
-      - run: python qverify.py "${{ matrix.name }}" "${{ github.event.inputs.time_limit || '4800' }}" 4
+      - env:
+          QV_ENGINE: ${{ github.event.inputs.engine || 'highs' }}
+          GRB_WLSACCESSID: ${{ secrets.GRB_WLSACCESSID }}
+          GRB_WLSSECRET: ${{ secrets.GRB_WLSSECRET }}
+          GRB_LICENSEID: ${{ secrets.GRB_LICENSEID }}
+        run: python qverify.py "${{ matrix.name }}" "${{ github.event.inputs.time_limit || '4800' }}" 4
       - uses: actions/upload-artifact@v4
         if: always()
         with:
