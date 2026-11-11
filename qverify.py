@@ -80,7 +80,8 @@ def exact_dist(H, Lc, blocks, tl, threads, deadline=None):
     lo = min(lbs) if best is not None else None
     return best, lo, wit, cases
 
-def run(entry, tl, threads):
+def build(entry):
+    """Returns Hx, Hz, symmetry blocks (orbits or None), annotated entry."""
     blocks = None
     if entry['kind'] == 'lp':
         import lp_ci, clp_ci
@@ -116,6 +117,10 @@ def run(entry, tl, threads):
     else:
         al, be, ga = entry['torus']; P = parse(entry['f'])
         Hx, Hz = group_code(al, be, ga, P, [(-a, -b) for a, b in P])
+    return Hx, Hz, blocks, entry
+
+def run(entry, tl, threads):
+    Hx, Hz, blocks, entry = build(entry)
     assert not ((Hx.astype(int) @ Hz.T.astype(int)) % 2).any(), 'checks do not commute'
     n = Hx.shape[1]; k = n - rank2(Hx) - rank2(Hz)
     out = dict(entry, n=n, k=k, w=int(Hx.sum(1).max()), qdeg=int(Hx.sum(0).max() + Hz.sum(0).max()))
