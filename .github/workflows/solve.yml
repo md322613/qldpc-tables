@@ -1,0 +1,98 @@
+name: solve
+# Distributed exact lower bound: prove no logical of weight <= U-1 in one sector, split by automorphism orbits,
+# least pair class inside the orbit, and optional 2^k cubes on the hardest subcases. One job per bundle of subcases.
+on:
+  workflow_dispatch:
+    inputs:
+      code: { description: 'code name (as in codes*.json)', required: true }
+      sector: { description: 'X or Z', required: true, default: 'X' }
+      U: { description: 'target: prove d >= U', required: true }
+      hard: { description: 'orbit-0 pair classes t < hard get their own jobs', required: false, default: '4' }
+      cube: { description: 'cube depth k for hard subcases (2^k jobs each)', required: false, default: '2' }
+      t_hard: { description: 'seconds per hard subcase', required: false, default: '19000' }
+      t_easy: { description: 'seconds per easy subcase', required: false, default: '900' }
+permissions:
+  contents: write
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      jobs: ${{ steps.p.outputs.jobs }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install numpy galois highspy pycryptosat python-sat && sudo apt-get update -q && sudo apt-get install -y -q gap
+      - id: p
+        env: { CODE: '${{ inputs.code }}', SECTOR: '${{ inputs.sector }}', U: '${{ inputs.U }}', HARD: '${{ inputs.hard }}', CUBE: '${{ inputs.cube }}', TH: '${{ inputs.t_hard }}', TE: '${{ inputs.t_easy }}' }
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import os, json, subprocess
+          ids = json.loads(subprocess.check_output(['python3', 'qsat.py', os.environ['CODE'], os.environ['SECTOR'], os.environ['U'], 'list']).decode().strip().splitlines()[-1])
+          H, k, TH, TE = int(os.environ['HARD']), int(os.environ['CUBE']), int(os.environ['TH']), int(os.environ['TE'])
+          hard = [i for i in ids if i.startswith('0.') and i != '0.s' and int(i.split('.')[1]) < H]
+          easy = [i for i in ids if i not in hard]
+          jobs = [dict(ids=f'{i}@{k}:{b}', t=TH) for i in hard for b in range(2 ** k)]
+          per = max(1, 19000 // TE)
+          jobs += [dict(ids=','.join(easy[a:a + per]), t=TE) for a in range(0, len(easy), per)]
+          assert len(jobs) <= 256, len(jobs)
+          print('jobs=' + json.dumps(jobs))
+          PY
+  run:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        job: ${{ fromJson(needs.plan.outputs.jobs) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install numpy galois highspy pycryptosat python-sat && sudo apt-get update -q && sudo apt-get install -y -q gap
+      - run: python qsat.py "${{ inputs.code }}" "${{ inputs.sector }}" "${{ inputs.U }}" "${{ matrix.job.ids }}" "${{ matrix.job.t }}" 4
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'sat-${{ strategy.job-index }}', path: results/sat/, if-no-files-found: ignore }
+  collect:
+    needs: run
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { path: dl, pattern: 'sat-*', merge-multiple: true }
+      - env: { CODE: '${{ inputs.code }}', SECTOR: '${{ inputs.sector }}', U: '${{ inputs.U }}' }
+        run: |
+          python3 - <<'PY'
+          import json, glob, os, re
+          parts = [json.load(open(f)) for f in glob.glob('dl/*.json')]
+          if not parts: raise SystemExit('no results')
+          ids = parts[0]['subcase_ids']; res = [r for p in parts for r in p['results']]
+          slug = re.sub(r'[^A-Za-z0-9]+', '_', os.environ['CODE']).strip('_')
+          # a base subcase is closed if UNSAT, or all its cubes are UNSAT
+          st = {}
+          for r in res:
+              base = r['id'].split('@')[0]; st.setdefault(base, []).append(r)
+          def closed(b):
+              rs = st.get(b, [])
+              if any(r['id'] == b and r['status'] == 'UNSAT' for r in rs): return True
+              cubes = [r for r in rs if '@' in r['id']]
+              if not cubes: return False
+              k = int(cubes[0]['id'].split('@')[1].split(':')[0])
+              return len({r['id'] for r in cubes if r['status'] == 'UNSAT'}) == 2 ** k
+          sat = [r for r in res if r['status'] == 'SAT']
+          open_ = [b for b in ids if not closed(b)]
+          out = dict(name=os.environ['CODE'], sector=os.environ['SECTOR'], U=int(os.environ['U']), n_subcases=len(ids),
+                     certified=(not open_ and not sat), open=open_, witnesses=sat, results=res,
+                     run_url=f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}")
+          os.makedirs('results/sat', exist_ok=True)
+          f = f"results/sat/{slug}__{os.environ['SECTOR']}_U{os.environ['U']}__run{os.environ['GITHUB_RUN_ID']}.json"
+          json.dump(out, open(f, 'w'), indent=1)
+          print(json.dumps({k: out[k] for k in ('name', 'sector', 'U', 'n_subcases', 'certified')}), len(open_), 'open', len(sat), 'SAT')
+          PY
+      - run: |
+          git config user.name "qldpc-ci"; git config user.email "ci@users.noreply.github.com"
+          git add results/sat/*__run*.json && git commit -m "solve: ${{ inputs.code }} ${{ inputs.sector }} U=${{ inputs.U }} [skip ci]" && git pull --rebase -q && git push || true
