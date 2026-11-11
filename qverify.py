@@ -40,11 +40,21 @@ def logicals(H1, H2):
 def exact_dist(H, Lc, blocks, tl, threads, deadline=None):
     H = np.asarray(H) % 2; L = np.asarray(Lc) % 2; n = H.shape[1]
     best = None; wit = None; cases = []
+    use_grb = os.environ.get('QV_ENGINE') == 'gurobi'
     for ci, blk in enumerate(blocks):
-        h = highspy.Highs(); h.setOptionValue('output_flag', False)
         lim = float(tl)
         if deadline is not None:
             lim = max(60.0, min(lim, (deadline - time.time()) / (len(blocks) - ci)))
+        if use_grb:
+            import grb
+            r = grb.solve(H, L, None if best is None else best - 1, lim, threads,
+                          fix1=[] if blk == 'REST' else [int(blk[0])], fix0=[int(j) for b in blocks[:ci] for j in b])
+            if r['status'] == 'infeasible':
+                cases.append(dict(case=ci, status='infeasible', secs=r['secs'], engine='gurobi')); continue
+            cases.append(dict(case=ci, status=r['status'], incumbent=r['incumbent'] or 0, dual_bound=r['dual_bound'], secs=r['secs'], engine='gurobi'))
+            if r['witness'] is not None and (best is None or r['incumbent'] < best): best = r['incumbent']; wit = r['witness']
+            continue
+        h = highspy.Highs(); h.setOptionValue('output_flag', False)
         h.setOptionValue('time_limit', lim); h.setOptionValue('threads', threads)
         for j in range(n): h.addVar(0, 1)
         nv = [n]; integ = list(range(n))
@@ -147,7 +157,7 @@ if __name__ == '__main__':
     entry = next(e for f in sorted(glob.glob('codes*.json')) for e in json.load(open(f)) if e['name'] == name)
     os.makedirs('results', exist_ok=True)
     t = time.time(); res = run(entry, tl, threads); res['wall_secs'] = round(time.time() - t, 1)
-    res['env'] = dict(highspy=highspy.__version__ if hasattr(highspy, '__version__') else 'n/a', runner=os.environ.get('RUNNER_NAME', 'local'),
+    res['env'] = dict(engine=os.environ.get('QV_ENGINE', 'highs'), highspy=highspy.__version__ if hasattr(highspy, '__version__') else 'n/a', runner=os.environ.get('RUNNER_NAME', 'local'),
                       run_url=f"{os.environ.get('GITHUB_SERVER_URL','')}/{os.environ.get('GITHUB_REPOSITORY','')}/actions/runs/{os.environ.get('GITHUB_RUN_ID','')}")
     slug = re.sub(r'[^A-Za-z0-9]+', '_', name).strip('_')
     json.dump(res, open(f'results/{slug}.json', 'w'), indent=1)
