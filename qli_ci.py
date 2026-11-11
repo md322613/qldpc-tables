@@ -234,6 +234,7 @@ def orbits(Hx, Hz, D, nblocks, perms, cap=100000):
             for q in range(n):
                 a, b = f(q), f(int(sigma[q]))
                 if a != b: par[a] = b
+    global LAST_PERMS; LAST_PERMS = keep
     orb = {}
     for q in range(n): orb.setdefault(f(q), []).append(q)
     return sorted((sorted(v) for v in orb.values()), key=lambda v: v[0]), len(keep)
