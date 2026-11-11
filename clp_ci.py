@@ -53,6 +53,7 @@ def automorphism_orbits(Hx,Hz,m,nblocks,gens):
             inv=np.argsort(sigma)
             ok=np.linalg.matrix_rank(GF2(np.vstack([Hx,Hx[:,inv]])))==rx and np.linalg.matrix_rank(GF2(np.vstack([Hz,Hz[:,inv]])))==rz
             if ok: keep.append(sigma)
+    global LAST_PERMS; LAST_PERMS = [np.array(x) for x in keep]
     # union-find orbits
     par=list(range(n))
     def f(a):
