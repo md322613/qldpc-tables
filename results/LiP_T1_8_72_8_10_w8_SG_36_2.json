@@ -1,0 +1,145 @@
+{
+ "name": "LiP T1.8 [[72,8,10]] w8 SG(36,2)",
+ "kind": "lp",
+ "family": "2BGA (w=8)",
+ "id": [
+  36,
+  2
+ ],
+ "gens": [
+  "r"
+ ],
+ "rels": "r^36",
+ "a": [
+  [],
+  [
+   [
+    "r",
+    9
+   ]
+  ],
+  [
+   [
+    "r",
+    28
+   ]
+  ],
+  [
+   [
+    "r",
+    31
+   ]
+  ]
+ ],
+ "b": [
+  [],
+  [
+   [
+    "r",
+    1
+   ]
+  ],
+  [
+   [
+    "r",
+    21
+   ]
+  ],
+  [
+   [
+    "r",
+    34
+   ]
+  ]
+ ],
+ "claim": [
+  72,
+  8,
+  "10"
+ ],
+ "src": "2306.16400",
+ "automorphism_generators": 4,
+ "orbit_sizes": [
+  36,
+  36
+ ],
+ "n": 72,
+ "k": 8,
+ "w": 8,
+ "qdeg": 8,
+ "dX": {
+  "upper": 10,
+  "lower": 10,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   4,
+   21,
+   22,
+   27,
+   29,
+   37,
+   58,
+   62,
+   66
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 10,
+    "dual_bound": 10.0,
+    "secs": 9.1
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 10,
+  "lower": 10,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   4,
+   12,
+   21,
+   42,
+   43,
+   57,
+   59,
+   60,
+   62
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 10,
+    "dual_bound": 10.0,
+    "secs": 8.9
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "d": {
+  "upper": 10,
+  "lower": 10,
+  "exact": true
+ },
+ "wall_secs": 19.5,
+ "env": {
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002368",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42929322835"
+ }
+}

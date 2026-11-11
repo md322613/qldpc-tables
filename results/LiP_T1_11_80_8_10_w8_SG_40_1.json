@@ -1,0 +1,181 @@
+{
+ "name": "LiP T1.11 [[80,8,10]] w8 SG(40,1)",
+ "kind": "lp",
+ "family": "2BGA (w=8)",
+ "id": [
+  40,
+  1
+ ],
+ "gens": [
+  "r",
+  "s"
+ ],
+ "rels": "s^5,r^8,r^-1*s*r*s",
+ "a": [
+  [],
+  [
+   [
+    "r",
+    1
+   ]
+  ],
+  [
+   [
+    "s",
+    1
+   ]
+  ],
+  [
+   [
+    "s",
+    3
+   ],
+   [
+    "r",
+    5
+   ]
+  ]
+ ],
+ "b": [
+  [],
+  [
+   [
+    "r",
+    2
+   ]
+  ],
+  [
+   [
+    "s",
+    1
+   ],
+   [
+    "r",
+    4
+   ]
+  ],
+  [
+   [
+    "s",
+    3
+   ],
+   [
+    "r",
+    2
+   ]
+  ]
+ ],
+ "claim": [
+  80,
+  8,
+  "10"
+ ],
+ "src": "2306.16400",
+ "note": "printed relation s^-1 r s r gives order 10; r^-1 s r s reproduces SmallGroup(40,1), n, k",
+ "automorphism_generators": 3,
+ "orbit_sizes": [
+  20,
+  20,
+  20,
+  20
+ ],
+ "n": 80,
+ "k": 8,
+ "w": 8,
+ "qdeg": 8,
+ "dX": {
+  "upper": 10,
+  "lower": 10,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   4,
+   10,
+   14,
+   18,
+   24,
+   32,
+   59,
+   70,
+   73
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 10,
+    "dual_bound": 10.000000000000007,
+    "secs": 7.8
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 1.9
+   },
+   {
+    "case": 2,
+    "status": "infeasible",
+    "secs": 0.0
+   },
+   {
+    "case": 3,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 10,
+  "lower": 10,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   16,
+   17,
+   30,
+   42,
+   48,
+   57,
+   63,
+   68,
+   71
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 10,
+    "dual_bound": 10.0,
+    "secs": 8.3
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.8
+   },
+   {
+    "case": 2,
+    "status": "infeasible",
+    "secs": 0.1
+   },
+   {
+    "case": 3,
+    "status": "infeasible",
+    "secs": 0.1
+   }
+  ]
+ },
+ "d": {
+  "upper": 10,
+  "lower": 10,
+  "exact": true
+ },
+ "wall_secs": 20.2,
+ "env": {
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002364",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42929322835"
+ }
+}

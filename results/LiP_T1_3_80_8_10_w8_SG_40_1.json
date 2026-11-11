@@ -1,0 +1,180 @@
+{
+ "name": "LiP T1.3 [[80,8,10]] w8 SG(40,1)",
+ "kind": "lp",
+ "family": "2BGA (w=8)",
+ "id": [
+  40,
+  1
+ ],
+ "gens": [
+  "r",
+  "s"
+ ],
+ "rels": "s^5,r^8,r^-1*s*r*s",
+ "a": [
+  [],
+  [
+   [
+    "s",
+    1
+   ],
+   [
+    "r",
+    4
+   ]
+  ]
+ ],
+ "b": [
+  [],
+  [
+   [
+    "r",
+    1
+   ]
+  ],
+  [
+   [
+    "r",
+    2
+   ]
+  ],
+  [
+   [
+    "s",
+    1
+   ]
+  ],
+  [
+   [
+    "s",
+    3
+   ],
+   [
+    "r",
+    1
+   ]
+  ],
+  [
+   [
+    "s",
+    2
+   ],
+   [
+    "r",
+    6
+   ]
+  ]
+ ],
+ "claim": [
+  80,
+  8,
+  "10"
+ ],
+ "src": "2306.16400",
+ "automorphism_generators": 3,
+ "orbit_sizes": [
+  20,
+  20,
+  20,
+  20
+ ],
+ "n": 80,
+ "k": 8,
+ "w": 8,
+ "qdeg": 12,
+ "dX": {
+  "upper": 10,
+  "lower": 10,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   13,
+   43,
+   45,
+   46,
+   48,
+   53,
+   54,
+   57,
+   63
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 10,
+    "dual_bound": 10.0,
+    "secs": 3.1
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.3
+   },
+   {
+    "case": 2,
+    "status": "infeasible",
+    "secs": 0.0
+   },
+   {
+    "case": 3,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 10,
+  "lower": 10,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   2,
+   12,
+   14,
+   16,
+   18,
+   28,
+   30,
+   32,
+   34
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 10,
+    "dual_bound": 10.0,
+    "secs": 3.7
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 1.7
+   },
+   {
+    "case": 2,
+    "status": "infeasible",
+    "secs": 0.6
+   },
+   {
+    "case": 3,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "d": {
+  "upper": 10,
+  "lower": 10,
+  "exact": true
+ },
+ "wall_secs": 10.5,
+ "env": {
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002371",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42929322835"
+ }
+}

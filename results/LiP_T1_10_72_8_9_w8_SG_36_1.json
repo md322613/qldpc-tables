@@ -1,0 +1,178 @@
+{
+ "name": "LiP T1.10 [[72,8,9]] w8 SG(36,1)",
+ "kind": "lp",
+ "family": "2BGA (w=8)",
+ "id": [
+  36,
+  1
+ ],
+ "gens": [
+  "r",
+  "s"
+ ],
+ "rels": "s^4,r^9,s^-1*r*s*r",
+ "a": [
+  [],
+  [
+   [
+    "s",
+    1
+   ]
+  ],
+  [
+   [
+    "r",
+    1
+   ]
+  ],
+  [
+   [
+    "s",
+    1
+   ],
+   [
+    "r",
+    6
+   ]
+  ]
+ ],
+ "b": [
+  [],
+  [
+   [
+    "s",
+    2
+   ],
+   [
+    "r",
+    1
+   ]
+  ],
+  [
+   [
+    "s",
+    2
+   ],
+   [
+    "r",
+    6
+   ]
+  ],
+  [
+   [
+    "r",
+    2
+   ]
+  ]
+ ],
+ "claim": [
+  72,
+  8,
+  "9"
+ ],
+ "src": "2306.16400",
+ "automorphism_generators": 3,
+ "orbit_sizes": [
+  18,
+  18,
+  18,
+  18
+ ],
+ "n": 72,
+ "k": 8,
+ "w": 8,
+ "qdeg": 8,
+ "dX": {
+  "upper": 9,
+  "lower": 9,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   28,
+   29,
+   34,
+   45,
+   50,
+   52,
+   63,
+   70
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 9,
+    "dual_bound": 9.000000000000247,
+    "secs": 5.8
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 1.1
+   },
+   {
+    "case": 2,
+    "status": "infeasible",
+    "secs": 0.1
+   },
+   {
+    "case": 3,
+    "status": "infeasible",
+    "secs": 0.0
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 9,
+  "lower": 9,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   8,
+   14,
+   16,
+   27,
+   40,
+   44,
+   52,
+   54
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 9,
+    "dual_bound": 9.0,
+    "secs": 5.1
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.9
+   },
+   {
+    "case": 2,
+    "status": "infeasible",
+    "secs": 0.1
+   },
+   {
+    "case": 3,
+    "status": "infeasible",
+    "secs": 0.1
+   }
+  ]
+ },
+ "d": {
+  "upper": 9,
+  "lower": 9,
+  "exact": true
+ },
+ "wall_secs": 15.0,
+ "env": {
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002365",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42929322835"
+ }
+}
