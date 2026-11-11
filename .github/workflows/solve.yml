@@ -11,6 +11,7 @@ on:
       cube: { description: 'cube depth k for hard subcases (2^k jobs each)', required: false, default: '2' }
       t_hard: { description: 'seconds per hard subcase', required: false, default: '19000' }
       t_easy: { description: 'seconds per easy subcase', required: false, default: '900' }
+      engine: { description: 'sat (CryptoMiniSat) | highs | gurobi (needs GRB_* secrets)', required: false, default: 'sat' }
 permissions:
   contents: write
 jobs:
@@ -22,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
-      - run: pip install numpy galois highspy pycryptosat python-sat && sudo apt-get update -q && sudo apt-get install -y -q gap
+      - run: pip install numpy galois highspy pycryptosat python-sat gurobipy && sudo apt-get update -q && sudo apt-get install -y -q gap
       - id: p
         env: { CODE: '${{ inputs.code }}', SECTOR: '${{ inputs.sector }}', U: '${{ inputs.U }}', HARD: '${{ inputs.hard }}', CUBE: '${{ inputs.cube }}', TH: '${{ inputs.t_hard }}', TE: '${{ inputs.t_easy }}' }
         run: |
@@ -51,8 +52,15 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
-      - run: pip install numpy galois highspy pycryptosat python-sat && sudo apt-get update -q && sudo apt-get install -y -q gap
-      - run: python qsat.py "${{ inputs.code }}" "${{ inputs.sector }}" "${{ inputs.U }}" "${{ matrix.job.ids }}" "${{ matrix.job.t }}" 4
+      - run: pip install numpy galois highspy pycryptosat python-sat gurobipy && sudo apt-get update -q && sudo apt-get install -y -q gap
+      - env:
+          QS_ENGINE: ${{ inputs.engine }}
+          GRB_WLSACCESSID: ${{ secrets.GRB_WLSACCESSID }}
+          GRB_WLSSECRET: ${{ secrets.GRB_WLSSECRET }}
+          GRB_LICENSEID: ${{ secrets.GRB_LICENSEID }}
+        run: |
+          if [ "$QS_ENGINE" = "sat" ]; then S=qsat.py; else S=qsplit.py; fi
+          python $S "${{ inputs.code }}" "${{ inputs.sector }}" "${{ inputs.U }}" "${{ matrix.job.ids }}" "${{ matrix.job.t }}" 4
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: 'sat-${{ strategy.job-index }}', path: results/sat/, if-no-files-found: ignore }
@@ -94,5 +102,6 @@ jobs:
           print(json.dumps({k: out[k] for k in ('name', 'sector', 'U', 'n_subcases', 'certified')}), len(open_), 'open', len(sat), 'SAT')
           PY
       - run: |
+          git pull -q || true
           git config user.name "qldpc-ci"; git config user.email "ci@users.noreply.github.com"
           git add results/sat/*__run*.json && git commit -m "solve: ${{ inputs.code }} ${{ inputs.sector }} U=${{ inputs.U }} [skip ci]" && git pull --rebase -q && git push || true
