@@ -60,7 +60,7 @@ def exact_dist(H, Lc, blocks, tl, threads, deadline=None):
         h.addRow(1, highspy.kHighsInf, len(av), av, [1.0] * len(av))
         for j in range(n): h.changeColCost(j, 1.0)
         for j in integ: h.changeColIntegrality(j, highspy.HighsVarType.kInteger)
-        h.changeColBounds(int(blk[0]), 1.0, 1.0)
+        if blk != 'REST': h.changeColBounds(int(blk[0]), 1.0, 1.0)   # orbit case: representative set (valid by symmetry)
         for b in blocks[:ci]:
             for j in b: h.changeColBounds(int(j), 0.0, 0.0)
         if best is not None: h.addRow(0, best - 1, n, list(range(n)), [1.0] * n)
@@ -88,6 +88,18 @@ def run(entry, tl, threads):
         assert D['id'] == entry['id'], ('group id mismatch', D['id'], entry['id'])
         blocks, ngens = clp_ci.automorphism_orbits(Hx, Hz, D['m'], nb, D['gens'])
         entry = dict(entry, automorphism_generators=ngens, orbit_sizes=[len(o) for o in blocks])
+    elif entry['kind'] == 'mat':
+        n0 = entry['n_qubits']
+        def M(rows):
+            X = np.zeros((len(rows), n0), dtype=np.uint8)
+            for i, r in enumerate(rows): X[i, r] = 1
+            return X
+        Hx, Hz = M(entry['Hx']), M(entry['Hz'])
+    elif entry['kind'] == 'qli':
+        import qli_ci
+        Hx, Hz, nb, D, perms, info = qli_ci.assemble(entry)
+        blocks, ngens = qli_ci.orbits(Hx, Hz, D, nb, perms)
+        entry = dict(entry, construction=info, automorphism_generators=ngens, orbit_sizes=[len(o) for o in blocks])
     elif entry['kind'] == 'atb':
         import atb_ci, clp_ci
         D = atb_ci.gap_build(entry); Hx, Hz, nb = atb_ci.assemble(D)
@@ -108,6 +120,10 @@ def run(entry, tl, threads):
     n = Hx.shape[1]; k = n - rank2(Hx) - rank2(Hz)
     out = dict(entry, n=n, k=k, w=int(Hx.sum(1).max()), qdeg=int(Hx.sum(0).max() + Hz.sum(0).max()))
     if blocks is None: blocks = [range(0, n // 2), range(n // 2, n)]
+    MAXC = int(os.environ.get('QV_MAXCASES', '24'))
+    if len(blocks) > MAXC:   # few symmetries: split on the first MAXC-1 orbits, last case = all of them zero, nothing fixed
+        out['cases_note'] = f'{len(blocks)} orbits; first {MAXC-1} used as cases, remainder as one unfixed case'
+        blocks = list(blocks[:MAXC - 1]) + ['REST']
     budget = float(os.environ.get('QV_BUDGET', '17400'))   # total seconds for this code (job limit is 350 min)
     t_start = time.time()
     for ti, (typ, H, Lc) in enumerate((('X', Hz, logicals(Hz, Hx)), ('Z', Hx, logicals(Hx, Hz)))):
