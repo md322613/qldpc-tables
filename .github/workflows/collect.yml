@@ -17,16 +17,23 @@ jobs:
         with:
           path: dl
           pattern: 'res-*'
-          merge-multiple: true
           run-id: ${{ github.event.inputs.run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - run: |
+      - env: { RID: '${{ github.event.inputs.run_id }}' }
+        run: |
           mkdir -p results
           python3 - <<'PY'
           import json, glob, os
           def key(r): return (r['d']['exact'], -(r['d']['upper'] - r['d']['lower']))
           best = {}
-          for f in sorted(glob.glob('results/*.json')) + sorted(glob.glob('dl/*.json')):
+          RID = os.environ['RID']
+          new = []   # each artifact also carries the checked-out results/; keep only files written by that run
+          for f in sorted(glob.glob('dl/*/*.json')):
+              if f.endswith('index.json'): continue
+              try: r = json.load(open(f))
+              except Exception: continue
+              if RID in r.get('env', {}).get('run_url', ''): new.append(f)
+          for f in sorted(glob.glob('results/*.json')) + new:
               if f.endswith('index.json'): continue
               r = json.load(open(f))
               if r['name'] not in best or key(r) > key(best[r['name']][0]): best[r['name']] = (r, f)
