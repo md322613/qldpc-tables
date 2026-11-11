@@ -208,175 +208,192 @@
  "qdeg": 10,
  "dX": {
   "upper": 24,
-  "lower": 11,
+  "lower": 15,
   "exact": false,
   "witness_ok": true,
   "witness": [
    144,
-   146,
-   148,
-   149,
+   145,
+   150,
    155,
-   156,
+   158,
    160,
-   161,
-   165,
-   170,
+   164,
+   167,
+   168,
+   171,
    173,
-   174,
-   179,
+   176,
+   178,
+   180,
+   182,
    185,
-   186,
-   190,
-   191,
-   194,
-   203,
+   201,
    204,
+   205,
    206,
-   207,
-   213,
+   208,
+   209,
+   211,
    214
   ],
   "cases": [
    {
     "case": 0,
-    "status": "HighsModelStatus.kTimeLimit",
-    "incumbent": 33,
-    "dual_bound": 11.0,
-    "secs": 1087.3
+    "status": "timelimit",
+    "incumbent": 29,
+    "dual_bound": 15.0,
+    "secs": 1087.1,
+    "engine": "gurobi"
    },
    {
     "case": 1,
-    "status": "HighsModelStatus.kTimeLimit",
+    "status": "timelimit",
     "incumbent": 28,
-    "dual_bound": 14.0,
-    "secs": 1087.2
+    "dual_bound": 16.0,
+    "secs": 1087.0,
+    "engine": "gurobi"
    },
    {
     "case": 2,
-    "status": "HighsModelStatus.kTimeLimit",
-    "incumbent": 0,
-    "dual_bound": 13.0,
-    "secs": 1087.2
+    "status": "timelimit",
+    "incumbent": 26,
+    "dual_bound": 22.0,
+    "secs": 1086.8,
+    "engine": "gurobi"
    },
    {
     "case": 3,
     "status": "infeasible",
-    "secs": 625.4
+    "secs": 239.0,
+    "engine": "gurobi"
    },
    {
     "case": 4,
     "status": "optimal",
     "incumbent": 24,
     "dual_bound": 24.0,
-    "secs": 21.6
+    "secs": 3.7,
+    "engine": "gurobi"
    },
    {
     "case": 5,
     "status": "infeasible",
-    "secs": 0.0
+    "secs": 0.0,
+    "engine": "gurobi"
    },
    {
     "case": 6,
     "status": "infeasible",
-    "secs": 15.6
+    "secs": 4.7,
+    "engine": "gurobi"
    },
    {
     "case": 7,
     "status": "infeasible",
-    "secs": 0.0
+    "secs": 0.0,
+    "engine": "gurobi"
    }
   ]
  },
  "dZ": {
   "upper": 24,
-  "lower": 10,
+  "lower": 16,
   "exact": false,
   "witness_ok": true,
   "witness": [
-   0,
-   2,
-   3,
-   5,
-   6,
-   8,
-   24,
-   27,
-   29,
-   32,
-   34,
-   38,
-   39,
-   41,
-   43,
-   47,
-   49,
-   52,
-   54,
-   61,
-   67,
-   68,
-   69,
-   70
+   72,
+   74,
+   76,
+   77,
+   79,
+   82,
+   83,
+   84,
+   88,
+   89,
+   94,
+   95,
+   99,
+   100,
+   101,
+   102,
+   107,
+   115,
+   116,
+   120,
+   121,
+   122,
+   133,
+   136
   ],
   "cases": [
    {
     "case": 0,
-    "status": "HighsModelStatus.kTimeLimit",
-    "incumbent": 24,
-    "dual_bound": 10.0,
-    "secs": 1684.2
+    "status": "timelimit",
+    "incumbent": 29,
+    "dual_bound": 16.0,
+    "secs": 1735.8,
+    "engine": "gurobi"
    },
    {
     "case": 1,
-    "status": "HighsModelStatus.kTimeLimit",
-    "incumbent": 0,
-    "dual_bound": 13.0,
-    "secs": 1684.2
+    "status": "timelimit",
+    "incumbent": 28,
+    "dual_bound": 17.0,
+    "secs": 1735.7,
+    "engine": "gurobi"
    },
    {
     "case": 2,
-    "status": "HighsModelStatus.kTimeLimit",
-    "incumbent": 0,
-    "dual_bound": 16.0,
-    "secs": 1684.2
+    "status": "timelimit",
+    "incumbent": 24,
+    "dual_bound": 21.0,
+    "secs": 1735.6,
+    "engine": "gurobi"
    },
    {
     "case": 3,
     "status": "infeasible",
-    "secs": 245.2
+    "secs": 979.4,
+    "engine": "gurobi"
    },
    {
     "case": 4,
     "status": "infeasible",
-    "secs": 56.0
+    "secs": 0.5,
+    "engine": "gurobi"
    },
    {
     "case": 5,
     "status": "infeasible",
-    "secs": 16.7
+    "secs": 0.4,
+    "engine": "gurobi"
    },
    {
     "case": 6,
     "status": "infeasible",
-    "secs": 0.0
+    "secs": 0.0,
+    "engine": "gurobi"
    },
    {
     "case": 7,
     "status": "infeasible",
-    "secs": 0.0
+    "secs": 0.0,
+    "engine": "gurobi"
    }
   ]
  },
  "d": {
   "upper": 24,
-  "lower": 10,
+  "lower": 15,
   "exact": false
  },
- "wall_secs": 9298.6,
+ "wall_secs": 9704.4,
  "env": {
+  "engine": "gurobi",
   "highspy": "n/a",
-  "runner": "GitHub Actions 1000002337",
-  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42788118135"
+  "runner": "GitHub Actions 1000002416",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42945779948"
  }
 }

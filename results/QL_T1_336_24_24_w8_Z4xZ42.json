@@ -1,0 +1,173 @@
+{
+ "name": "QL T1 [[336,24,\u226424]] w8 Z4xZ42",
+ "kind": "qli",
+ "family": "coset-orbit BP (w=8)",
+ "group": "Z4xZ42",
+ "K": [],
+ "A": [
+  [
+   [
+    "e",
+    "x y^2",
+    "x^2 y^5",
+    "x^3 y^6"
+   ]
+  ]
+ ],
+ "B": [
+  [
+   [
+    "e",
+    "x y^13",
+    "x^2 y^9",
+    "x^3 y^19"
+   ]
+  ]
+ ],
+ "claim": [
+  336,
+  24,
+  "<=24"
+ ],
+ "w_claim": 8,
+ "src": "2608.08996",
+ "construction": {
+  "order": 168,
+  "K": 1,
+  "D": 168,
+  "normalizer": 168,
+  "shape": [
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ "automorphism_generators": 2,
+ "orbit_sizes": [
+  168,
+  168
+ ],
+ "n": 336,
+ "k": 24,
+ "w": 8,
+ "qdeg": 8,
+ "dX": {
+  "upper": 28,
+  "lower": 16,
+  "exact": false,
+  "witness_ok": true,
+  "witness": [
+   0,
+   41,
+   66,
+   79,
+   96,
+   155,
+   162,
+   165,
+   168,
+   173,
+   174,
+   180,
+   195,
+   205,
+   206,
+   268,
+   271,
+   275,
+   285,
+   290,
+   307,
+   309,
+   316,
+   317,
+   318,
+   323,
+   330,
+   331
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "timelimit",
+    "incumbent": 28,
+    "dual_bound": 16.0,
+    "secs": 4348.2,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 4.1,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 28,
+  "lower": 15,
+  "exact": false,
+  "witness_ok": true,
+  "witness": [
+   168,
+   183,
+   184,
+   189,
+   190,
+   207,
+   208,
+   213,
+   214,
+   231,
+   232,
+   237,
+   238,
+   255,
+   256,
+   261,
+   262,
+   279,
+   280,
+   285,
+   286,
+   303,
+   304,
+   309,
+   310,
+   327,
+   328,
+   333
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "timelimit",
+    "incumbent": 32,
+    "dual_bound": 15.0,
+    "secs": 4800.0,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "optimal",
+    "incumbent": 28,
+    "dual_bound": 28.0,
+    "secs": 14.2,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "d": {
+  "upper": 28,
+  "lower": 15,
+  "exact": false
+ },
+ "wall_secs": 9173.3,
+ "env": {
+  "engine": "gurobi",
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002433",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42945779948"
+ }
+}

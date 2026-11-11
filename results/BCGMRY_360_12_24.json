@@ -18,107 +18,110 @@
  "qdeg": 6,
  "dX": {
   "upper": 24,
-  "lower": 12,
+  "lower": 16,
   "exact": false,
   "witness_ok": true,
   "witness": [
    0,
    6,
-   11,
-   23,
-   27,
-   32,
-   38,
-   70,
-   75,
-   106,
-   144,
-   171,
-   185,
+   8,
+   14,
+   35,
+   41,
+   47,
+   137,
+   158,
+   167,
+   183,
+   184,
    190,
-   202,
-   228,
-   238,
-   249,
-   270,
-   281,
-   285,
-   286,
-   306,
-   329
+   218,
+   219,
+   235,
+   236,
+   258,
+   289,
+   311,
+   316,
+   317,
+   342,
+   347
   ],
   "cases": [
    {
     "case": 0,
-    "status": "HighsModelStatus.kTimeLimit",
+    "status": "timelimit",
     "incumbent": 24,
-    "dual_bound": 12.0,
-    "secs": 4800.1
+    "dual_bound": 16.0,
+    "secs": 4347.2,
+    "engine": "gurobi"
    },
    {
     "case": 1,
     "status": "infeasible",
-    "secs": 0.3
+    "secs": 0.0,
+    "engine": "gurobi"
    }
   ]
  },
  "dZ": {
-  "upper": 26,
-  "lower": 11,
+  "upper": 24,
+  "lower": 17,
   "exact": false,
   "witness_ok": true,
   "witness": [
    0,
+   1,
+   2,
+   3,
    5,
-   10,
-   33,
-   36,
-   47,
-   63,
-   85,
-   100,
-   143,
-   153,
-   160,
-   161,
-   168,
-   169,
-   185,
-   187,
-   193,
+   55,
+   59,
+   79,
+   80,
+   86,
+   118,
+   132,
+   171,
+   203,
+   209,
    210,
-   220,
-   221,
-   237,
-   269,
-   300,
-   327,
-   348
+   230,
+   243,
+   249,
+   263,
+   270,
+   292,
+   297,
+   323
   ],
   "cases": [
    {
     "case": 0,
-    "status": "HighsModelStatus.kTimeLimit",
-    "incumbent": 26,
-    "dual_bound": 11.0,
-    "secs": 4800.1
+    "status": "timelimit",
+    "incumbent": 24,
+    "dual_bound": 17.0,
+    "secs": 4800.0,
+    "engine": "gurobi"
    },
    {
     "case": 1,
     "status": "infeasible",
-    "secs": 0.7
+    "secs": 0.0,
+    "engine": "gurobi"
    }
   ]
  },
  "d": {
   "upper": 24,
-  "lower": 11,
+  "lower": 16,
   "exact": false
  },
- "wall_secs": 9607.3,
+ "wall_secs": 9153.9,
  "env": {
+  "engine": "gurobi",
   "highspy": "n/a",
-  "runner": "GitHub Actions 1000002288",
-  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42198448481"
+  "runner": "GitHub Actions 1000002415",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42945779948"
  }
 }

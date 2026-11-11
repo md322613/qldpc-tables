@@ -23,90 +23,93 @@
   "witness_ok": true,
   "witness": [
    0,
-   3,
+   6,
    15,
-   24,
-   27,
-   33,
+   18,
+   21,
+   30,
+   36,
    39,
-   45,
    48,
-   51,
-   54,
-   63,
-   72,
-   81,
-   93,
+   69,
+   90,
    102,
-   123,
-   135
+   111,
+   114,
+   126,
+   132,
+   135,
+   138
   ],
   "cases": [
    {
     "case": 0,
     "status": "optimal",
     "incumbent": 18,
-    "dual_bound": 17.999999999999996,
-    "secs": 3811.5
+    "dual_bound": 18.0,
+    "secs": 952.3,
+    "engine": "gurobi"
    },
    {
     "case": 1,
     "status": "infeasible",
-    "secs": 1.0
+    "secs": 0.0,
+    "engine": "gurobi"
    }
   ]
  },
  "dZ": {
   "upper": 18,
-  "lower": 12,
-  "exact": false,
+  "lower": 18,
+  "exact": true,
   "witness_ok": true,
   "witness": [
-   144,
-   156,
-   159,
-   165,
-   168,
-   174,
-   180,
-   183,
-   186,
-   192,
-   204,
-   207,
-   216,
-   228,
-   261,
-   270,
-   279,
-   282
+   0,
+   1,
+   3,
+   5,
+   6,
+   8,
+   10,
+   11,
+   40,
+   42,
+   44,
+   46,
+   73,
+   76,
+   80,
+   81,
+   110,
+   114
   ],
   "cases": [
    {
     "case": 0,
-    "status": "HighsModelStatus.kTimeLimit",
-    "incumbent": 22,
-    "dual_bound": 12.0,
-    "secs": 4800.1
-   },
-   {
-    "case": 1,
     "status": "optimal",
     "incumbent": 18,
     "dual_bound": 18.0,
-    "secs": 0.7
+    "secs": 882.9,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.0,
+    "engine": "gurobi"
    }
   ]
  },
  "d": {
   "upper": 18,
-  "lower": 12,
-  "exact": false
+  "lower": 18,
+  "exact": true
  },
- "wall_secs": 8617.2,
+ "wall_secs": 1837.8,
  "env": {
+  "engine": "gurobi",
   "highspy": "n/a",
-  "runner": "GitHub Actions 1000002287",
-  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42198448481"
+  "runner": "GitHub Actions 1000002405",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42945779948"
  }
 }

@@ -1,0 +1,161 @@
+{
+ "name": "QL T1 [[372,44,18]] w10 Z31xZ6",
+ "kind": "qli",
+ "family": "coset-orbit BP (w=10)",
+ "group": "Z31xZ6",
+ "K": [],
+ "A": [
+  [
+   [
+    "x^5 y",
+    "x^5 y^3",
+    "x^7 y^2",
+    "x^18 y^2",
+    "x^30 y^2"
+   ]
+  ]
+ ],
+ "B": [
+  [
+   [
+    "x^10 y",
+    "x^10 y^3",
+    "x^21 y^5",
+    "x^24 y^5",
+    "x^26 y^5"
+   ]
+  ]
+ ],
+ "claim": [
+  372,
+  44,
+  "18"
+ ],
+ "w_claim": 10,
+ "src": "2608.08996",
+ "construction": {
+  "order": 186,
+  "K": 1,
+  "D": 186,
+  "normalizer": 186,
+  "shape": [
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ "automorphism_generators": 2,
+ "orbit_sizes": [
+  186,
+  186
+ ],
+ "n": 372,
+ "k": 44,
+ "w": 10,
+ "qdeg": 10,
+ "dX": {
+  "upper": 26,
+  "lower": 15,
+  "exact": false,
+  "witness_ok": true,
+  "witness": [
+   0,
+   51,
+   57,
+   89,
+   103,
+   105,
+   124,
+   152,
+   165,
+   210,
+   222,
+   226,
+   228,
+   232,
+   245,
+   246,
+   254,
+   259,
+   260,
+   264,
+   269,
+   283,
+   288,
+   312,
+   362,
+   369
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "timelimit",
+    "incumbent": 26,
+    "dual_bound": 15.0,
+    "secs": 4343.5,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 123.5,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 18,
+  "lower": 15,
+  "exact": false,
+  "witness_ok": true,
+  "witness": [
+   0,
+   5,
+   14,
+   21,
+   35,
+   49,
+   87,
+   101,
+   115,
+   232,
+   246,
+   250,
+   260,
+   264,
+   278,
+   316,
+   330,
+   344
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "timelimit",
+    "incumbent": 18,
+    "dual_bound": 15.0,
+    "secs": 4800.0,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 9.6,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "d": {
+  "upper": 18,
+  "lower": 15,
+  "exact": false
+ },
+ "wall_secs": 9291.7,
+ "env": {
+  "engine": "gurobi",
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002442",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42945779948"
+ }
+}

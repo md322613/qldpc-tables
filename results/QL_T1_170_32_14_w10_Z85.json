@@ -1,0 +1,145 @@
+{
+ "name": "QL T1 [[170,32,14]] w10 Z85",
+ "kind": "qli",
+ "family": "coset-orbit BP (w=10)",
+ "group": "Z85",
+ "K": [],
+ "A": [
+  [
+   [
+    "e",
+    "x^3",
+    "x^4",
+    "x^10",
+    "x^67"
+   ]
+  ]
+ ],
+ "B": [
+  [
+   [
+    "e",
+    "x^5",
+    "x^29",
+    "x^31",
+    "x^37"
+   ]
+  ]
+ ],
+ "claim": [
+  170,
+  32,
+  "14"
+ ],
+ "w_claim": 10,
+ "src": "2608.08996",
+ "construction": {
+  "order": 85,
+  "K": 1,
+  "D": 85,
+  "normalizer": 85,
+  "shape": [
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ "automorphism_generators": 1,
+ "orbit_sizes": [
+  85,
+  85
+ ],
+ "n": 170,
+ "k": 32,
+ "w": 10,
+ "qdeg": 10,
+ "dX": {
+  "upper": 14,
+  "lower": 14,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   25,
+   26,
+   28,
+   29,
+   53,
+   54,
+   58,
+   59,
+   115,
+   143,
+   144,
+   168,
+   169
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 14,
+    "dual_bound": 14.0,
+    "secs": 155.0,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.3,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 14,
+  "lower": 14,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   2,
+   8,
+   18,
+   21,
+   22,
+   28,
+   53,
+   85,
+   91,
+   109,
+   111,
+   123,
+   141
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 14,
+    "dual_bound": 14.0,
+    "secs": 564.6,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.4,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "d": {
+  "upper": 14,
+  "lower": 14,
+  "exact": true
+ },
+ "wall_secs": 723.4,
+ "env": {
+  "engine": "gurobi",
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002443",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42945779948"
+ }
+}

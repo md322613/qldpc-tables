@@ -1,0 +1,233 @@
+{
+ "name": "Quantinuum C4-Helix [[20,2,6]] w8",
+ "kind": "mat",
+ "family": "concatenated symplectic double (w=8)",
+ "n_qubits": 20,
+ "Hx": [
+  [
+   0,
+   1,
+   2,
+   3
+  ],
+  [
+   4,
+   5,
+   6,
+   7
+  ],
+  [
+   8,
+   9,
+   10,
+   11
+  ],
+  [
+   12,
+   13,
+   14,
+   15
+  ],
+  [
+   16,
+   17,
+   18,
+   19
+  ],
+  [
+   0,
+   3,
+   6,
+   7,
+   10,
+   11,
+   12,
+   15
+  ],
+  [
+   4,
+   7,
+   10,
+   11,
+   14,
+   15,
+   16,
+   19
+  ],
+  [
+   0,
+   3,
+   8,
+   11,
+   14,
+   15,
+   18,
+   19
+  ],
+  [
+   2,
+   3,
+   4,
+   7,
+   12,
+   15,
+   18,
+   19
+  ]
+ ],
+ "Hz": [
+  [
+   0,
+   1,
+   2,
+   3
+  ],
+  [
+   4,
+   5,
+   6,
+   7
+  ],
+  [
+   8,
+   9,
+   10,
+   11
+  ],
+  [
+   12,
+   13,
+   14,
+   15
+  ],
+  [
+   16,
+   17,
+   18,
+   19
+  ],
+  [
+   0,
+   3,
+   6,
+   7,
+   10,
+   11,
+   12,
+   15
+  ],
+  [
+   4,
+   7,
+   10,
+   11,
+   14,
+   15,
+   16,
+   19
+  ],
+  [
+   0,
+   3,
+   8,
+   11,
+   14,
+   15,
+   18,
+   19
+  ],
+  [
+   2,
+   3,
+   4,
+   7,
+   12,
+   15,
+   18,
+   19
+  ]
+ ],
+ "claim": [
+  20,
+  2,
+  "6"
+ ],
+ "src": "2609.03194",
+ "note": "[[5,1,3]] -> symplectic double [[10,2,3]] (App. A, Eq. A1-A2), qubit pairs (i,i+5) concatenated into C4 blocks with logicals XIIX/IIZZ, IIXX/ZIIZ; self-dual, H_X=H_Z rowspace",
+ "n": 20,
+ "k": 2,
+ "w": 8,
+ "qdeg": 10,
+ "dX": {
+  "upper": 6,
+  "lower": 6,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   1,
+   5,
+   6,
+   8,
+   9
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 6,
+    "dual_bound": 6.0,
+    "secs": 0.0,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.0,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 6,
+  "lower": 6,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   1,
+   5,
+   6,
+   8,
+   9
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 6,
+    "dual_bound": 6.0,
+    "secs": 0.0,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.0,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "d": {
+  "upper": 6,
+  "lower": 6,
+  "exact": true
+ },
+ "wall_secs": 0.1,
+ "env": {
+  "engine": "gurobi",
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002425",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42945779948"
+ }
+}

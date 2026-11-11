@@ -1,0 +1,131 @@
+{
+ "name": "WPC GB [[510,16,24]] w6 l=255",
+ "kind": "bb",
+ "family": "generalized bicycle (w=6)",
+ "l": 255,
+ "m": 1,
+ "A": "x0+x39+x55",
+ "B": "x0+x70+x127",
+ "claim": [
+  510,
+  16,
+  "24"
+ ],
+ "src": "2609.21249",
+ "n": 510,
+ "k": 16,
+ "w": 6,
+ "qdeg": 6,
+ "dX": {
+  "upper": 26,
+  "lower": 14,
+  "exact": false,
+  "witness_ok": true,
+  "witness": [
+   0,
+   20,
+   32,
+   52,
+   89,
+   102,
+   125,
+   143,
+   146,
+   148,
+   205,
+   213,
+   230,
+   292,
+   310,
+   330,
+   331,
+   346,
+   383,
+   385,
+   396,
+   413,
+   429,
+   435,
+   440,
+   468
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "timelimit",
+    "incumbent": 26,
+    "dual_bound": 14.0,
+    "secs": 4339.6,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.0,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 26,
+  "lower": 15,
+  "exact": false,
+  "witness_ok": true,
+  "witness": [
+   0,
+   7,
+   23,
+   55,
+   135,
+   147,
+   151,
+   186,
+   200,
+   202,
+   206,
+   224,
+   239,
+   262,
+   263,
+   279,
+   295,
+   315,
+   332,
+   352,
+   372,
+   385,
+   389,
+   429,
+   480,
+   500
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "timelimit",
+    "incumbent": 26,
+    "dual_bound": 15.0,
+    "secs": 4800.0,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.0,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "d": {
+  "upper": 26,
+  "lower": 14,
+  "exact": false
+ },
+ "wall_secs": 9161.1,
+ "env": {
+  "engine": "gurobi",
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002424",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42945779948"
+ }
+}

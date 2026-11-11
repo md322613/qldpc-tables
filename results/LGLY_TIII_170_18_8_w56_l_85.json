@@ -1,0 +1,95 @@
+{
+ "name": "LGLY TIII [[170,18,8]] w56 l=85",
+ "kind": "bb",
+ "family": "univariate bicycle (w=56)",
+ "l": 85,
+ "m": 1,
+ "A": "x0+x3+x4+x5+x6+x7+x8+x46+x49+x50+x51+x52+x53+x54+x59+x62+x63+x64+x65+x66+x67+x72+x75+x76+x77+x78+x79+x80",
+ "B": "x0+x3+x4+x5+x6+x7+x8+x46+x49+x50+x51+x52+x53+x54+x61+x64+x65+x66+x67+x68+x69+x70+x73+x74+x75+x76+x77+x78",
+ "claim": [
+  170,
+  18,
+  "8"
+ ],
+ "src": "2608.09115",
+ "n": 170,
+ "k": 18,
+ "w": 56,
+ "qdeg": 56,
+ "dX": {
+  "upper": 8,
+  "lower": 8,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   13,
+   59,
+   72,
+   98,
+   144,
+   159,
+   168
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 8,
+    "dual_bound": 8.0,
+    "secs": 25.8,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 1.1,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 8,
+  "lower": 8,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   15,
+   61,
+   76,
+   87,
+   100,
+   146,
+   159
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 8,
+    "dual_bound": 8.0,
+    "secs": 15.8,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 1.8,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "d": {
+  "upper": 8,
+  "lower": 8,
+  "exact": true
+ },
+ "wall_secs": 46.1,
+ "env": {
+  "engine": "gurobi",
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002472",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42945779948"
+ }
+}

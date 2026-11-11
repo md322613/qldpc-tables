@@ -1,0 +1,149 @@
+{
+ "name": "QL T1 [[224,22,16]] w8 Z84:29Z4",
+ "kind": "qli",
+ "family": "coset-orbit BP (w=8)",
+ "group": "Z84:29Z4",
+ "K": [
+  "x^28"
+ ],
+ "A": [
+  [
+   [
+    "s^2",
+    "x",
+    "x^2 s^3",
+    "x^5 s^2"
+   ]
+  ]
+ ],
+ "B": [
+  [
+   [
+    "s",
+    "x^5",
+    "x^17 s",
+    "x^20 s^3"
+   ]
+  ]
+ ],
+ "claim": [
+  224,
+  22,
+  "16"
+ ],
+ "w_claim": 8,
+ "src": "2608.08996",
+ "construction": {
+  "order": 336,
+  "K": 3,
+  "D": 112,
+  "normalizer": 336,
+  "shape": [
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ "automorphism_generators": 2,
+ "orbit_sizes": [
+  112,
+  112
+ ],
+ "n": 224,
+ "k": 22,
+ "w": 8,
+ "qdeg": 8,
+ "dX": {
+  "upper": 16,
+  "lower": 16,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   20,
+   29,
+   36,
+   38,
+   42,
+   44,
+   64,
+   66,
+   88,
+   91,
+   111,
+   181,
+   187,
+   188,
+   201
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 16,
+    "dual_bound": 16.0,
+    "secs": 1917.2,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.2,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 16,
+  "lower": 16,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   7,
+   19,
+   20,
+   27,
+   47,
+   60,
+   66,
+   73,
+   85,
+   93,
+   110,
+   115,
+   156,
+   180,
+   202
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 16,
+    "dual_bound": 16.0,
+    "secs": 601.4,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.5,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "d": {
+  "upper": 16,
+  "lower": 16,
+  "exact": true
+ },
+ "wall_secs": 2522.8,
+ "env": {
+  "engine": "gurobi",
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002432",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42945779948"
+ }
+}

@@ -150,163 +150,178 @@
  "qdeg": 8,
  "dX": {
   "upper": 20,
-  "lower": 13,
+  "lower": 16,
   "exact": false,
   "witness_ok": true,
   "witness": [
    168,
    169,
-   178,
+   175,
    179,
-   183,
-   184,
-   189,
-   191,
-   195,
+   180,
+   190,
    197,
    201,
+   202,
    207,
-   226,
+   209,
+   213,
+   219,
+   220,
+   221,
+   227,
    232,
    237,
    238,
-   242,
-   243,
-   246,
    249
   ],
   "cases": [
    {
     "case": 0,
-    "status": "HighsModelStatus.kTimeLimit",
-    "incumbent": 40,
-    "dual_bound": 13.0,
-    "secs": 4800.2
+    "status": "timelimit",
+    "incumbent": 22,
+    "dual_bound": 16.0,
+    "secs": 1086.6,
+    "engine": "gurobi"
    },
    {
     "case": 1,
-    "status": "optimal",
-    "incumbent": 22,
-    "dual_bound": 22.0,
-    "secs": 3591.1
+    "status": "timelimit",
+    "incumbent": 0,
+    "dual_bound": 17.0,
+    "secs": 1086.6,
+    "engine": "gurobi"
    },
    {
     "case": 2,
-    "status": "HighsModelStatus.kTimeLimit",
-    "incumbent": 0,
-    "dual_bound": 18.0,
-    "secs": 4800.1
+    "status": "infeasible",
+    "secs": 803.0,
+    "engine": "gurobi"
    },
    {
     "case": 3,
     "status": "infeasible",
-    "secs": 35.6
+    "secs": 16.3,
+    "engine": "gurobi"
    },
    {
     "case": 4,
     "status": "optimal",
     "incumbent": 20,
     "dual_bound": 20.0,
-    "secs": 1.7
+    "secs": 0.1,
+    "engine": "gurobi"
    },
    {
     "case": 5,
     "status": "infeasible",
-    "secs": 0.0
+    "secs": 0.0,
+    "engine": "gurobi"
    },
    {
     "case": 6,
     "status": "infeasible",
-    "secs": 1.5
+    "secs": 0.0,
+    "engine": "gurobi"
    },
    {
     "case": 7,
     "status": "infeasible",
-    "secs": 0.0
+    "secs": 0.0,
+    "engine": "gurobi"
    }
   ]
  },
  "dZ": {
   "upper": 20,
-  "lower": 12,
+  "lower": 17,
   "exact": false,
   "witness_ok": true,
   "witness": [
    0,
-   6,
+   1,
+   4,
    7,
-   10,
-   11,
-   12,
-   17,
-   21,
-   28,
+   23,
+   29,
+   33,
    35,
    39,
-   40,
    41,
    46,
    47,
-   51,
+   52,
    53,
-   58,
+   57,
    63,
-   69
+   69,
+   70,
+   74,
+   75
   ],
   "cases": [
    {
     "case": 0,
-    "status": "HighsModelStatus.kTimeLimit",
+    "status": "timelimit",
     "incumbent": 20,
-    "dual_bound": 12.0,
-    "secs": 4800.1
+    "dual_bound": 17.0,
+    "secs": 1800.0,
+    "engine": "gurobi"
    },
    {
     "case": 1,
     "status": "infeasible",
-    "secs": 1566.5
+    "secs": 778.9,
+    "engine": "gurobi"
    },
    {
     "case": 2,
     "status": "infeasible",
-    "secs": 228.9
+    "secs": 389.1,
+    "engine": "gurobi"
    },
    {
     "case": 3,
     "status": "infeasible",
-    "secs": 32.4
+    "secs": 28.2,
+    "engine": "gurobi"
    },
    {
     "case": 4,
     "status": "infeasible",
-    "secs": 10.2
+    "secs": 2.3,
+    "engine": "gurobi"
    },
    {
     "case": 5,
     "status": "infeasible",
-    "secs": 0.1
+    "secs": 0.0,
+    "engine": "gurobi"
    },
    {
     "case": 6,
     "status": "infeasible",
-    "secs": 0.0
+    "secs": 0.0,
+    "engine": "gurobi"
    },
    {
     "case": 7,
     "status": "infeasible",
-    "secs": 0.0
+    "secs": 0.0,
+    "engine": "gurobi"
    }
   ]
  },
  "d": {
   "upper": 20,
-  "lower": 12,
+  "lower": 16,
   "exact": false
  },
- "wall_secs": 19875.5,
+ "wall_secs": 6000.7,
  "env": {
+  "engine": "gurobi",
   "highspy": "n/a",
-  "runner": "GitHub Actions 1000002315",
-  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42701935765"
+  "runner": "GitHub Actions 1000002406",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42945779948"
  }
 }

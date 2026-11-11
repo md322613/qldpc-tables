@@ -1,0 +1,91 @@
+{
+ "name": "LGLY TII [[90,18,6]] w30 l=45",
+ "kind": "bb",
+ "family": "univariate bicycle (w=30)",
+ "l": 45,
+ "m": 1,
+ "A": "x0+x2+x4+x5+x8+x9+x24+x27+x28+x29+x32+x33+x39+x42+x43+x44",
+ "B": "x0+x2+x4+x5+x8+x9+x30+x33+x34+x35+x38+x42+x43+x44",
+ "claim": [
+  90,
+  18,
+  "6"
+ ],
+ "src": "2608.09115",
+ "n": 90,
+ "k": 18,
+ "w": 30,
+ "qdeg": 32,
+ "dX": {
+  "upper": 6,
+  "lower": 6,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   9,
+   12,
+   39,
+   51,
+   63
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 6,
+    "dual_bound": 6.0,
+    "secs": 3.4,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.2,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "dZ": {
+  "upper": 6,
+  "lower": 6,
+  "exact": true,
+  "witness_ok": true,
+  "witness": [
+   0,
+   6,
+   36,
+   45,
+   51,
+   75
+  ],
+  "cases": [
+   {
+    "case": 0,
+    "status": "optimal",
+    "incumbent": 6,
+    "dual_bound": 6.0,
+    "secs": 3.4,
+    "engine": "gurobi"
+   },
+   {
+    "case": 1,
+    "status": "infeasible",
+    "secs": 0.0,
+    "engine": "gurobi"
+   }
+  ]
+ },
+ "d": {
+  "upper": 6,
+  "lower": 6,
+  "exact": true
+ },
+ "wall_secs": 7.4,
+ "env": {
+  "engine": "gurobi",
+  "highspy": "n/a",
+  "runner": "GitHub Actions 1000002461",
+  "run_url": "https://github.com/md322613/qldpc-tables/actions/runs/42945779948"
+ }
+}
